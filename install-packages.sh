@@ -77,9 +77,13 @@ command -v pacman >/dev/null 2>&1 || { err "pacman not found."; exit 1; }
 [[ -f "$AUR_LIST" ]] || { warn "Missing: $AUR_LIST (AUR step will be skipped)"; }
 
 # Count AUR lines safely (ignore blanks/comments)
+# IMPORTANT FIX:
+# With `set -euo pipefail`, grep returning 1 (no matches) would exit the script.
 aur_count=0
 if [[ -f "$AUR_LIST" ]]; then
-  aur_count="$(grep -vE '^\s*($|#)' "$AUR_LIST" | wc -l | tr -d ' ')"
+  aur_count="$(
+    { grep -vE '^\s*($|#)' "$AUR_LIST" || true; } | wc -l | tr -d ' '
+  )"
 fi
 
 info "Repo:        $REPO_DIR"
