@@ -53,7 +53,8 @@ Options:
 
 ./install.sh --dry-run
 ./install.sh --force
-🚀 Features
+
+## 🚀 Features
 
 Arch / Arch-based OS detection
 
@@ -73,7 +74,7 @@ Home dotfile support (.zshrc)
 
 Safe to run multiple times
 
-🧱 Structure
+## 🧱 Structure
 dotspace/
 ├── setup.sh
 ├── install.sh
@@ -92,8 +93,8 @@ dotspace/
 ├── assets/
 │   └── screenshots/
 └── README.md
-📦 Package Management
 
+## 📦 Package Management
 Generate package lists:
 
 ./scripts/pkglist.sh packages
@@ -105,7 +106,8 @@ sudo pacman -Syu --needed - < packages/pkglist.txt
 Install AUR packages:
 
 yay -S --needed - < packages/aur-pkglist.txt
-⚠️ Notes
+
+## ⚠️ Notes
 
 Designed for Arch Linux and Arch-based distributions
 
@@ -119,20 +121,9 @@ Existing configs are backed up automatically to:
 
 All install scripts are idempotent (safe to re-run)
 
-📄 License
-
+## 📄 License
 MIT © Naushad Ansari
 
 
 ---
 
-# ✅ Apply This
-
-```bash
-cd ~/dotspace
-nano README.md
-# delete everything
-# paste the full version above
-git add README.md
-git commit -m "Final professional README"
-git push
