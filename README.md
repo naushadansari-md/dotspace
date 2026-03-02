@@ -1,17 +1,25 @@
-# dotspace ✨
+# dotspace ✨  
+**A modern Wayland dotfiles ecosystem for Arch Linux**
 
-A reproducible **Arch Linux dotfiles setup** for modern **Wayland desktops**.
+> Minimal. Reproducible. Opinionated.  
+> Built for people who care about performance, aesthetics, and control.
 
-Includes:
+---
 
-- Hyprland
-- Niri
-- Waybar
-- Kitty
-- Zsh
-- Supporting Wayland tooling
+## 🌌 What is dotspace?
 
-Designed for Arch Linux and Arch-based distributions.
+**dotspace** is a curated **Arch Linux dotfiles setup** designed around the modern **Wayland stack**.
+
+It brings together:
+
+- 🪟 **Hyprland** – dynamic, smooth, and expressive
+- 🧭 **Niri** – scroll-based tiling for focused workflows
+- 📊 **Waybar** – clean and informative status bar
+- 🐱 **Kitty** – fast GPU-accelerated terminal
+- 🐚 **Zsh** – a powerful interactive shell
+- 🧩 Supporting CLI & Wayland tools
+
+All packaged with **safe installers**, **automatic backups**, and **idempotent scripts**.
 
 ---
 
