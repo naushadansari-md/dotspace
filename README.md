@@ -191,29 +191,3 @@ Then restore backup if necessary.
 MIT © Naushad Ansari
 
 ---
-
-## ✅ After pushing
-
-All of these links will work:
-
-- `#quick-start-recommended`
-- `#manual-installation`
-- `#install-packages-only`
-- `#install-dotfiles-only`
-- `#structure`
-- `#package-management`
-- `#backup--restore`
-- `#uninstall`
-
----
-
-If you'd like next-level polish, I can add:
-
-- GitHub badges  
-- Animated GIF preview  
-- Troubleshooting section  
-- FAQ  
-- Install flow diagram  
-- CI badge  
-
-Just tell me 🚀
