@@ -206,6 +206,6 @@ rm ~/.zshrc
 Then restore backup if necessary.
 
 ## License
-MIT © Naushad Ansari
+MIT © Md Naushad
 
 ---
