@@ -32,7 +32,7 @@ git clone https://github.com/naushadansari-md/dotspace.git
 cd dotspace
 chmod +x setup.sh
 ./setup.sh
-
+---
 
 ## ⚙️ Manual Installation
 
@@ -137,3 +137,4 @@ git add README.md
 git commit -m "Fix README formatting completely"
 git push
 
+---
