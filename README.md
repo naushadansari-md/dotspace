@@ -32,3 +32,21 @@ git clone https://github.com/naushadansari-md/dotspace.git
 cd dotspace
 chmod +x setup.sh
 ./setup.sh
+
+## ⚙️ Manual Installation
+1️⃣ Install packages only
+./install-packages.sh
+
+Options:
+
+./install-packages.sh --dry-run
+./install-packages.sh --force
+./install-packages.sh --aur-helper yay
+
+2️⃣ Install dotfiles only
+./install.sh
+
+Options:
+
+./install.sh --dry-run
+./install.sh --force
