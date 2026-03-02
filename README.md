@@ -25,8 +25,16 @@ All packaged with **safe installers**, **automatic backups**, and **idempotent s
 
 ## Preview
 
-![Hyprland](assets/screenshots/hyprland.png)
-![Niri](assets/screenshots/niri.png)
+<p align="center">
+  <a href="assets/screenshots/hyprland.png">
+    <img src="assets/screenshots/hyprland.png" width="45%">
+  </a>
+  <a href="assets/screenshots/niri.png">
+    <img src="assets/screenshots/niri.png" width="45%">
+  </a>
+</p>
+
+<sub>Click images to view full resolution</sub>
 
 ---
 
