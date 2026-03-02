@@ -50,6 +50,64 @@ cd dotspace
 chmod +x setup.sh
 ./setup.sh
 ```
+## Manual Installation
+
+Use this method if you want full control over the installation process.
+
+Ideal when:
+
+You want to inspect packages before installing
+
+You only want configs
+
+You only want packages
+
+You are debugging
+
+Install packages only
+
+Installs official Arch packages and AUR packages separately.
+
+./install-packages.sh
+| Option             | Description                                  |
+| ------------------ | -------------------------------------------- |
+| `--dry-run`        | Preview installation without making changes  |
+| `--force`          | Reinstall packages even if already installed |
+| `--aur-helper yay` | Manually specify AUR helper (`yay` / `paru`) |
+
+Example
+./install-packages.sh --dry-run
+./install-packages.sh --aur-helper paru
+
+stall dotfiles only
+
+Creates symlinks and backs up existing configurations.
+
+./install.sh
+
+What it does:
+
+Creates symlinks under ~/.config
+
+Links .zshrc to ~/.zshrc
+
+Automatically backs up existing configs
+
+Skips already-linked files
+
+Safe to run multiple times
+
+| Option      | Description                |
+| ----------- | -------------------------- |
+| `--dry-run` | Preview changes only       |
+| `--force`   | Overwrite existing configs |
+
+| Option      | Description                |
+| ----------- | -------------------------- |
+| `--dry-run` | Preview changes only       |
+| `--force`   | Overwrite existing configs |
+
+```
 
 
 ## Structure
