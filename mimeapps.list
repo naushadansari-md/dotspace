@@ -1,0 +1,25 @@
+[Default Applications]
+text/html=google-chrome.desktop
+x-scheme-handler/http=google-chrome.desktop
+x-scheme-handler/https=google-chrome.desktop
+x-scheme-handler/about=google-chrome.desktop
+x-scheme-handler/unknown=google-chrome.desktop
+image/png=imv-dir.desktop
+application/x-shellscript=geany.desktop
+x-scheme-handler/mailto=userapp-Thunderbird-DN8WK3.desktop
+message/rfc822=userapp-Thunderbird-DN8WK3.desktop
+x-scheme-handler/mid=userapp-Thunderbird-DN8WK3.desktop
+application/pdf=org.pwmt.zathura-pdf-mupdf.desktop
+x-scheme-handler/jetbrains=jetbrains-toolbox.desktop
+inode/directory=nemo.desktop
+application/x-trash=geany.desktop
+text/x-csrc=geany.desktop
+
+[Added Associations]
+image/png=imv.desktop;imv-dir.desktop;
+application/x-shellscript=geany.desktop;
+x-scheme-handler/mailto=userapp-Thunderbird-DN8WK3.desktop;
+x-scheme-handler/mid=userapp-Thunderbird-DN8WK3.desktop;
+application/pdf=org.pwmt.zathura-pdf-mupdf.desktop;
+application/x-trash=geany.desktop;
+text/x-csrc=geany.desktop;
