@@ -107,7 +107,26 @@ Safe to run multiple times
 | `--dry-run` | Preview changes only       |
 | `--force`   | Overwrite existing configs |
 
-```
+
+## Features
+
+Arch / Arch-based OS detection
+
+Automatic backup system before overwriting configs
+
+Idempotent install scripts (safe to re-run)
+
+Dry-run support for safe testing
+
+AUR helper auto-detection (yay / paru)
+
+Modular structure (packages and configs separated)
+
+Clean symlink management
+
+Home dotfile support (.zshrc)
+
+Reproducible environment setup
 
 
 ## Structure
@@ -132,3 +151,61 @@ dotspace/
 │   └── screenshots/
 └── README.md
 ```
+## Package Management
+
+Generate package lists:
+./scripts/pkglist.sh packages
+
+Restore official packages:
+sudo pacman -Syu --needed - < packages/pkglist.txt
+
+Install AUR packages:
+yay -S --needed - < packages/aur-pkglist.txt
+
+
+## Backup & Restore
+Before overwriting configs, backups are created automatically at:
+~/.config-backup-YYYYMMDD-HHMMSS
+
+To restore manually:
+cp -r ~/.config-backup-YYYYMMDD-HHMMSS/* ~/.config/
+
+## Uninstall
+Remove linked configurations manually:
+rm -rf ~/.config/hypr
+rm -rf ~/.config/niri
+rm -rf ~/.config/waybar
+rm -rf ~/.config/kitty
+rm ~/.zshrc
+Then restore backup if necessary.
+
+## License
+MIT © Naushad Ansari
+
+---
+
+## ✅ After pushing
+
+All of these links will work:
+
+- `#quick-start-recommended`
+- `#manual-installation`
+- `#install-packages-only`
+- `#install-dotfiles-only`
+- `#structure`
+- `#package-management`
+- `#backup--restore`
+- `#uninstall`
+
+---
+
+If you'd like next-level polish, I can add:
+
+- GitHub badges  
+- Animated GIF preview  
+- Troubleshooting section  
+- FAQ  
+- Install flow diagram  
+- CI badge  
+
+Just tell me 🚀
