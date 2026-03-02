@@ -25,24 +25,31 @@ All packaged with **safe installers**, **automatic backups**, and **idempotent s
 
 ## Preview
 
+<h3 align="center">Hyprland</h3>
+
 <p align="center">
   <a href="assets/screenshots/hypr-1.png">
-    <img src="assets/screenshots/hypr-1.png" width="48%" />
+    <img src="assets/screenshots/hypr-1.png" width="30%" />
   </a>
-   <a href="assets/screenshots/hypr-2.png">
-    <img src="assets/screenshots/hypr-2.png" width="48%" />
+  <a href="assets/screenshots/hypr-2.png">
+    <img src="assets/screenshots/hypr-2.png" width="30%" />
   </a>
   <a href="assets/screenshots/hypr-3.png">
-    <img src="assets/screenshots/hypr-3.png" width="48%" />
+    <img src="assets/screenshots/hypr-3.png" width="30%" />
   </a>
+</p>
+
+<h3 align="center">Niri</h3>
+
+<p align="center">
   <a href="assets/screenshots/niri.png">
-    <img src="assets/screenshots/niri.png" width="48%" />
+    <img src="assets/screenshots/niri.png" width="60%" />
   </a>
 </p>
 
 <p align="center">
-  <sub>Hyprland (left) · Niri (right) — Click to view full resolution</sub>
-</p>>
+  <sub>Click images to view full resolution</sub>
+</p>
 
 ---
 
