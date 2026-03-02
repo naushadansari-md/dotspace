@@ -5,29 +5,29 @@ Includes **Hyprland**, **Niri**, **Waybar**, **Kitty**, **Zsh**, and related too
 
 ---
 
-## 🖼 Preview
+## Preview
 
 ![Hyprland](assets/screenshots/hyprland.png)
 ![Niri](assets/screenshots/niri.png)
 
 ---
 
-## 🧭 Table of Contents
+## Table of Contents
 
-- [🖼 Preview](#-preview)
-- [🚀 Quick Start (Recommended)](#-quick-start-recommended)
-- [⚙️ Manual Installation](#️-manual-installation)
-  - [Install packages only](#1️⃣-install-packages-only)
-  - [Install dotfiles only](#2️⃣-install-dotfiles-only)
-- [🚀 Features](#-features)
-- [🧱 Structure](#-structure)
-- [📦 Package Management](#-package-management)
-- [⚠️ Notes](#️-notes)
-- [📄 License](#-license)
+- [Preview](#preview)
+- [Quick Start (Recommended)](#quick-start-recommended)
+- [Manual Installation](#manual-installation)
+  - [Install packages only](#install-packages-only)
+  - [Install dotfiles only](#install-dotfiles-only)
+- [Features](#features)
+- [Structure](#structure)
+- [Package Management](#package-management)
+- [Notes](#notes)
+- [License](#license)
 
 ---
 
-## 🚀 Quick Start (Recommended)
+## Quick Start (Recommended)
 
 ```bash
 git clone https://github.com/naushadansari-md/dotspace.git
