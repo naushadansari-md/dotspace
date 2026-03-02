@@ -1,32 +1,17 @@
 #!/bin/sh
 set -eu
 
-# Prevent multiple instances
-LOCKFILE="${XDG_RUNTIME_DIR:-/tmp}/idle-power.lock"
-exec 9>"$LOCKFILE"
-if ! flock -n 9; then
-  echo "Already running." >&2
-  exit 0
-fi
+WARN="$HOME/.config/niri/scripts/lock-warning.sh"
 
-WARN="$HOME/.config/niri/lock-warning.sh"
-
-# ----- Customize your timeouts here (seconds) -----
+# On AC:
 AC_WARN=595
 AC_LOCK=600
 AC_OFF=900
 
+# On battery:
 BAT_WARN=295
 BAT_LOCK=300
 BAT_OFF=420
-# -----------------------------------------------
-
-pid=""
-
-cleanup() {
-  [ -n "${pid:-}" ] && kill "$pid" 2>/dev/null || true
-}
-trap cleanup EXIT INT TERM
 
 get_ac_online() {
   for d in /sys/class/power_supply/*; do
@@ -39,12 +24,24 @@ get_ac_online() {
   echo 0
 }
 
+mode_now() {
+  [ "$(get_ac_online)" = "1" ] && echo "AC" || echo "BAT"
+}
+
 start_swayidle() {
-  mode="$1" # "AC" or "BAT"
+  mode="$1"
   if [ "$mode" = "AC" ]; then
     WARN_T="$AC_WARN"; LOCK_T="$AC_LOCK"; OFF_T="$AC_OFF"
   else
     WARN_T="$BAT_WARN"; LOCK_T="$BAT_LOCK"; OFF_T="$BAT_OFF"
+  fi
+
+  # Ensure lock happens before power-off
+  if [ "$OFF_T" -le "$LOCK_T" ]; then
+    OFF_T=$((LOCK_T + 1))
+  fi
+  if [ "$LOCK_T" -le "$WARN_T" ]; then
+    WARN_T=$((LOCK_T > 5 ? LOCK_T - 5 : LOCK_T - 1))
   fi
 
   echo "Starting swayidle mode=$mode warn=$WARN_T lock=$LOCK_T off=$OFF_T" >&2
@@ -52,35 +49,55 @@ start_swayidle() {
   exec swayidle -w \
     timeout "$WARN_T" "$WARN" \
     timeout "$LOCK_T" 'swaylock -f' \
-    timeout "$OFF_T"  'niri msg output "*" power off' \
-    resume            'niri msg output "*" power on' \
+    timeout "$OFF_T"  'niri msg action power-off-monitors' \
+    resume            'niri msg action power-on-monitors' \
     before-sleep      'swaylock -f'
 }
 
-run_loop() {
-  last=""
-  while :; do
-    online="$(get_ac_online)"
-    mode="BAT"
-    [ "$online" = "1" ] && mode="AC"
+run() {
+  last="$(mode_now)"
+  pid=""
 
-    if [ "$mode" != "$last" ]; then
-      last="$mode"
-      ( start_swayidle "$mode" ) &
-      pid=$!
-    fi
+  fifo="/tmp/swayidle-power.$UID.fifo"
 
-    sleep 2
+  cleanup() {
+    [ -n "${pid:-}" ] && { kill "$pid" 2>/dev/null || true; wait "$pid" 2>/dev/null || true; }
+    rm -f "$fifo" 2>/dev/null || true
+  }
+  trap cleanup INT TERM EXIT
 
-    online2="$(get_ac_online)"
-    mode2="BAT"; [ "$online2" = "1" ] && mode2="AC"
-    if [ "$mode2" != "$last" ]; then
+  rm -f "$fifo"
+  mkfifo "$fifo"
+
+  # Start swayidle once
+  ( start_swayidle "$last" ) &
+  pid=$!
+
+  # Start udev monitor writing into FIFO (no pipeline subshell for our loop)
+  udevadm monitor --udev --subsystem-match=power_supply >"$fifo" &
+  monpid=$!
+
+  while IFS= read -r _line; do
+    now="$(mode_now)"
+
+    # Restart if mode changed OR swayidle died
+    if [ "$now" != "$last" ] || ! kill -0 "$pid" 2>/dev/null; then
+      if [ "$now" != "$last" ]; then
+        echo "Power mode changed: $last -> $now" >&2
+        last="$now"
+      else
+        echo "swayidle exited; restarting (mode=$last)" >&2
+      fi
+
       kill "$pid" 2>/dev/null || true
       wait "$pid" 2>/dev/null || true
-      last=""
-      pid=""
+      ( start_swayidle "$last" ) &
+      pid=$!
     fi
-  done
+  done <"$fifo"
+
+  kill "$monpid" 2>/dev/null || true
+  wait "$monpid" 2>/dev/null || true
 }
 
-run_loop
+run

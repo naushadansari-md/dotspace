@@ -4,6 +4,7 @@ alsa-utils
 astyle
 base
 base-devel
+blueman
 bluez
 bluez-utils
 brightnessctl
