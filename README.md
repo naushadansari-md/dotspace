@@ -56,17 +56,17 @@ Use this method if you want full control over the installation process.
 
 Ideal when:
 
-You want to inspect packages before installing
+- You want to inspect packages before installing
 
-You only want configs
+- You only want configs
 
-You only want packages
+- You only want packages
 
-You are debugging
+- You are debugging
 
-Install packages only
+- Install packages only
 
-Installs official Arch packages and AUR packages separately.
+- Installs official Arch packages and AUR packages separately.
 
 ./install-packages.sh
 | Option             | Description                                  |
@@ -88,15 +88,15 @@ Creates symlinks and backs up existing configurations.
 ```
 What it does:
 
-Creates symlinks under ~/.config
+- Creates symlinks under ~/.config
 
-Links .zshrc to ~/.zshrc
+- Links .zshrc to ~/.zshrc
 
-Automatically backs up existing configs
+- Automatically backs up existing configs
 
-Skips already-linked files
+- Skips already-linked files
 
-Safe to run multiple times
+- Safe to run multiple times
 
 | Option      | Description                |
 | ----------- | -------------------------- |
