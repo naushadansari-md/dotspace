@@ -1,45 +1,34 @@
 # dotspace ✨
 
-> My personal Linux dotfiles collection for Wayland desktops  
-> (Hyprland, Niri, and related tools)
-
-![Wayland Rice](assets/screenshots/cover.png)
+> A reproducible Arch Linux dotfiles setup for Wayland desktops.  
+> Includes Hyprland, Niri, Waybar, Kitty, Zsh and related tooling.
 
 ---
 
-## 🚀 What’s Inside
+## 🖼 Preview
 
-This repository contains config files & setups for:
-
-- **Hyprland**
-- **Niri**
-- Waybar
-- Kitty
-- Neovim
-- Other UI/UX customizations
+![Hyprland](assets/screenshots/hyprland.png)
+![Niri](assets/screenshots/niri.png)
 
 ---
 
-## 🖼 Screenshots
+## 🧭 Table of Contents
 
-### Hyprland
-![Hyprland Screenshot](assets/screenshots/hyprland.png)
-
-### Niri
-![Niri Screenshot](assets/screenshots/niri.png)
+- [Preview](#-preview)
+- [Quick Start (Recommended)](#-quick-start-recommended)
+- [Manual Installation](#-manual-installation)
+- [Features](#-features)
+- [Structure](#-structure)
+- [Package Management](#-package-management)
+- [Notes](#-notes)
+- [License](#-license)
 
 ---
 
-## 🗂 Folder Structure
+## 🚀 Quick Start (Recommended)
 
-```text
-dotspace/
-├── hypr/
-├── niri/
-├── waybar/
-├── kitty/
-├── nvim/
-├── assets/
-│   └── screenshots/
-├── install.sh
-└── README.md
+```bash
+git clone https://github.com/naushadansari-md/dotspace.git
+cd dotspace
+chmod +x setup.sh
+./setup.sh
