@@ -14,14 +14,14 @@
 
 ## 🧭 Table of Contents
 
-- [Preview](#-preview)
-- [Quick Start (Recommended)](#-quick-start-recommended)
-- [Manual Installation](#-manual-installation)
-- [Features](#-features)
-- [Structure](#-structure)
-- [Package Management](#-package-management)
-- [Notes](#-notes)
-- [License](#-license)
+- [Preview](#preview)
+- [Quick Start (Recommended)](#quick-start-recommended)
+- [Manual Installation](#manual-installation)
+- [Features](#features)
+- [Structure](#structure)
+- [Package Management](#package-management)
+- [Notes](#notes)
+- [License](#license)
 
 ---
 
@@ -33,12 +33,14 @@ cd dotspace
 chmod +x setup.sh
 ./setup.sh
 
-## ⚙️ Manual Installation
+
+## Manual Installation
+
+```bash
 1️⃣ Install packages only
 ./install-packages.sh
 
 Options:
-
 ./install-packages.sh --dry-run
 ./install-packages.sh --force
 ./install-packages.sh --aur-helper yay
@@ -47,6 +49,5 @@ Options:
 ./install.sh
 
 Options:
-
 ./install.sh --dry-run
 ./install.sh --force
