@@ -26,8 +26,14 @@ All packaged with **safe installers**, **automatic backups**, and **idempotent s
 ## Preview
 
 <p align="center">
-  <a href="assets/screenshots/hyprland.png">
-    <img src="assets/screenshots/hyprland.png" width="48%" />
+  <a href="assets/screenshots/hypr-1.png">
+    <img src="assets/screenshots/hypr-1.png" width="48%" />
+  </a>
+   <a href="assets/screenshots/hypr-2.png">
+    <img src="assets/screenshots/hypr-2.png" width="48%" />
+  </a>
+  <a href="assets/screenshots/hypr-3.png">
+    <img src="assets/screenshots/hypr-3.png" width="48%" />
   </a>
   <a href="assets/screenshots/niri.png">
     <img src="assets/screenshots/niri.png" width="48%" />
