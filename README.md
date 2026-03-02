@@ -52,4 +52,25 @@ chmod +x setup.sh
 ```
 
 
+## Structure
 
+```text
+dotspace/
+├── setup.sh
+├── install.sh
+├── install-packages.sh
+├── packages/
+│   ├── pkglist.txt
+│   └── aur-pkglist.txt
+├── scripts/
+│   └── pkglist.sh
+├── hypr/
+├── niri/
+├── waybar/
+├── kitty/
+├── zsh/
+├── .zshrc
+├── assets/
+│   └── screenshots/
+└── README.md
+```
