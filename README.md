@@ -76,15 +76,16 @@ Installs official Arch packages and AUR packages separately.
 | `--aur-helper yay` | Manually specify AUR helper (`yay` / `paru`) |
 
 Example
+```bash
 ./install-packages.sh --dry-run
 ./install-packages.sh --aur-helper paru
-
+```
 stall dotfiles only
 
 Creates symlinks and backs up existing configurations.
-
+```bash
 ./install.sh
-
+```
 What it does:
 
 Creates symlinks under ~/.config
@@ -110,23 +111,23 @@ Safe to run multiple times
 
 ## Features
 
-Arch / Arch-based OS detection
+- Arch / Arch-based OS detection
 
-Automatic backup system before overwriting configs
+- Automatic backup system before overwriting configs
 
-Idempotent install scripts (safe to re-run)
+- Idempotent install scripts (safe to re-run)
 
-Dry-run support for safe testing
+- Dry-run support for safe testing
 
-AUR helper auto-detection (yay / paru)
+- AUR helper auto-detection (yay / paru)
 
-Modular structure (packages and configs separated)
+- Modular structure (packages and configs separated)
 
-Clean symlink management
+- Clean symlink management
 
-Home dotfile support (.zshrc)
+- Home dotfile support (.zshrc)
 
-Reproducible environment setup
+- Reproducible environment setup
 
 
 ## Structure
@@ -154,22 +155,27 @@ dotspace/
 ## Package Management
 
 Generate package lists:
+```bash
 ./scripts/pkglist.sh packages
-
+```
 Restore official packages:
+```bash
 sudo pacman -Syu --needed - < packages/pkglist.txt
-
+```
 Install AUR packages:
+```bash
 yay -S --needed - < packages/aur-pkglist.txt
-
+```
 
 ## Backup & Restore
 Before overwriting configs, backups are created automatically at:
+```bash
 ~/.config-backup-YYYYMMDD-HHMMSS
-
+```
 To restore manually:
+```bash
 cp -r ~/.config-backup-YYYYMMDD-HHMMSS/* ~/.config/
-
+```
 ## Uninstall
 Remove linked configurations manually:
 rm -rf ~/.config/hypr
