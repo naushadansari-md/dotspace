@@ -14,7 +14,8 @@
 
 ## 🧭 Table of Contents
 
-- [Quick Start](#-quick-start-recommended)
+- [Preview](#-preview)
+- [Quick Start (Recommended)](#-quick-start-recommended)
 - [Manual Installation](#-manual-installation)
 - [Features](#-features)
 - [Structure](#-structure)
