@@ -1,4 +1,10 @@
 # dotspace ✨  
+
+![Arch Linux](https://img.shields.io/badge/arch-linux-1793D1?logo=archlinux&logoColor=white)
+![Wayland](https://img.shields.io/badge/wayland-ready-5e81ac)
+![Hyprland](https://img.shields.io/badge/hyprland-wayland-8fbcbb)
+![License](https://img.shields.io/github/license/naushadansari-md/dotspace)
+
 **A modern Wayland dotfiles ecosystem for Arch Linux**
 
 Minimal. Reproducible. Opinionated.  
