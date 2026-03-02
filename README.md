@@ -1,7 +1,7 @@
 # dotspace ✨
 
-> My personal Arch Linux dotfiles setup  
-> Wayland-based desktop (Hyprland, Niri & related tools)
+> A reproducible Arch Linux dotfiles setup for Wayland desktops.  
+> Includes Hyprland, Niri, Waybar, Kitty, Zsh and related tooling.
 
 ---
 
@@ -9,6 +9,18 @@
 
 ![Hyprland](assets/screenshots/hyprland.png)
 ![Niri](assets/screenshots/niri.png)
+
+---
+
+## 🧭 Table of Contents
+
+- [Quick Start](#-quick-start-recommended)
+- [Manual Installation](#-manual-installation)
+- [Features](#-features)
+- [Structure](#-structure)
+- [Package Management](#-package-management)
+- [Notes](#-notes)
+- [License](#-license)
 
 ---
 
