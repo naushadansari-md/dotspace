@@ -32,3 +32,5 @@ git clone https://github.com/naushadansari-md/dotspace.git
 cd dotspace
 chmod +x setup.sh
 ./setup.sh
+
+## 🚀 Quick Start (Recommended)
