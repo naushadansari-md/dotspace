@@ -1,2 +1,2 @@
 # dotspace
-A personal collection of Linux dotfiles for Wayland compositors (Hyprland, Niri) and tools.
+Personal Linux dotfiles for Wayland desktops and workflows
