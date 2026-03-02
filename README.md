@@ -124,6 +124,16 @@ All install scripts are idempotent (safe to re-run)
 ## 📄 License
 MIT © Naushad Ansari
 
-
 ---
+
+## ✅ Now Apply
+
+```bash
+cd ~/dotspace
+nano README.md
+# delete everything
+# paste the full version above
+git add README.md
+git commit -m "Fix README formatting completely"
+git push
 
