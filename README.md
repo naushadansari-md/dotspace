@@ -1,7 +1,17 @@
 # dotspace ✨
 
-A reproducible **Arch Linux dotfiles setup** for modern **Wayland desktops**.  
-Includes **Hyprland**, **Niri**, **Waybar**, **Kitty**, **Zsh**, and related tooling.
+A reproducible **Arch Linux dotfiles setup** for modern **Wayland desktops**.
+
+Includes:
+
+- Hyprland
+- Niri
+- Waybar
+- Kitty
+- Zsh
+- Supporting Wayland tooling
+
+Designed for Arch Linux and Arch-based distributions.
 
 ---
 
@@ -19,15 +29,20 @@ Includes **Hyprland**, **Niri**, **Waybar**, **Kitty**, **Zsh**, and related too
 - [Manual Installation](#manual-installation)
   - [Install packages only](#install-packages-only)
   - [Install dotfiles only](#install-dotfiles-only)
+  - [Recommended order (manual mode)](#recommended-order-manual-mode)
 - [Features](#features)
 - [Structure](#structure)
 - [Package Management](#package-management)
+- [Backup & Restore](#backup--restore)
+- [Uninstall](#uninstall)
 - [Notes](#notes)
 - [License](#license)
 
 ---
 
 ## Quick Start (Recommended)
+
+The fastest way to install everything.
 
 ```bash
 git clone https://github.com/naushadansari-md/dotspace.git
