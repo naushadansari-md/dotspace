@@ -178,11 +178,13 @@ cp -r ~/.config-backup-YYYYMMDD-HHMMSS/* ~/.config/
 ```
 ## Uninstall
 Remove linked configurations manually:
+```bash
 rm -rf ~/.config/hypr
 rm -rf ~/.config/niri
 rm -rf ~/.config/waybar
 rm -rf ~/.config/kitty
 rm ~/.zshrc
+```
 Then restore backup if necessary.
 
 ## License
