@@ -1,0 +1,81 @@
+// ────────────── Input ──────────────
+input {
+    keyboard {
+        xkb {
+            layout "us"
+            options "ctrl:nocaps"
+        }
+        repeat-delay 300
+        repeat-rate 30
+        numlock
+    }
+
+    // ELAN0791:00 04F3:30FD Touchpad (114x58mm) — precision tuned
+    touchpad {
+        tap
+        dwt
+        drag true
+        drag-lock
+        natural-scroll
+        scroll-method "two-finger"
+
+        accel-profile "adaptive"
+        accel-speed 0.24
+
+        middle-emulation
+    }
+
+    mouse {
+        accel-profile "adaptive"
+        accel-speed 0.10
+        middle-emulation
+    }
+
+    warp-mouse-to-focus mode="center-xy"
+    focus-follows-mouse max-scroll-amount="5%"
+}
+
+
+// ────────────── Hotkey Overlay ──────────────
+hotkey-overlay {
+    skip-at-startup
+}
+
+
+// ────────────── Cursor ──────────────
+cursor {
+    xcursor-theme "Adwaita"
+    xcursor-size 24
+    hide-when-typing
+    hide-after-inactive-ms 10000
+}
+
+
+// ────────────── Overview ──────────────
+overview {
+    backdrop-color "#282828cc"
+
+    workspace-shadow {
+        off
+    }
+}
+
+
+// ────────────── Gestures ──────────────
+gestures {
+    dnd-edge-view-scroll {
+        trigger-width 30
+        delay-ms 100
+        max-speed 1500
+    }
+
+    dnd-edge-workspace-switch {
+        trigger-height 50
+        delay-ms 100
+        max-speed 1500
+    }
+
+    hot-corners {
+        off
+    }
+}

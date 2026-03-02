@@ -1,0 +1,80 @@
+/* ------------------------------
+   HYPRLAND WORKSPACES
+--------------------------------*/
+
+/* ===== Container ===== */
+#workspaces {
+  padding: 5px 8px 5px 8px;
+  margin: 0 6px;
+  border-radius: 10px;
+  background: radial-gradient(circle at 50% 250%,
+            alpha(shade(@surface, 0.85), 0.90),
+            alpha(@surface_dim, 0.9)) padding-box,
+        linear-gradient(@primary, @on_primary) border-box;
+
+  border: 1px solid transparent;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  opacity:0.85;
+
+}
+
+#workspaces:hover { 
+  background: radial-gradient(circle at 50% 250%,
+            alpha(shade(@surface, 0.85), 0.96),
+            alpha(@surface_dim, 0.96)) padding-box,
+        linear-gradient(@primary, @on_primary) border-box;
+  box-shadow:
+      0 0 6px alpha(@primary, 0.25),
+      inset 1px 2px 2px rgba(255, 255, 255, 0.25);
+
+  opacity: 1;
+
+
+}
+
+
+/* ===== Workspace Buttons ===== */
+#workspaces button {
+  color: @on_surface;
+  border-radius: 3px;
+  padding:0px 5px 0px 5px;
+  margin:0px 2px 0px 2px;
+  transition: all 0.3s ease-in-out;
+  border: 1px solid transparent;
+
+}
+
+
+/* ===== Hover State ===== */
+#workspaces button:hover {
+ background:alpha(@secondary,0.2);
+ border-radius: 8px;
+}
+
+
+/* ===== Active Workspace ===== */
+#workspaces button.active {
+  background: alpha(@primary, 0.2);
+  border: 1px solid alpha(@primary, 0.6);
+  transition: all 0.3s ease-in-out;
+  min-width: 22px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+/* ===== Urgent Workspace ===== */
+#workspaces button.urgent {
+  opacity: 1;
+  background: alpha(@error, 0.25);
+  border: 1px solid alpha(@error, 0.6);
+  min-width: 30px;
+  border-radius: 8px;
+  box-shadow:
+    0 0 14px alpha(@error, 0.35);
+}
+
+/* Center the icon visually */
+#workspaces button label {
+  margin-left: 0px;
+  margin-right: 3px;
+}

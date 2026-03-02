@@ -1,0 +1,88 @@
+// ────────────── Window Rules ──────────────
+
+// Global style for all windows
+window-rule {
+    geometry-corner-radius 10
+    clip-to-geometry true
+    draw-border-with-background false
+}
+
+
+// ────────────── Main Apps: Open Maximized ──────────────
+window-rule {
+    match app-id=r#"^(firefox|org\.mozilla\.firefox|google-chrome|chromium|brave-browser|org\.mozilla\.Thunderbird|org\.pwmt\.zathura|Papers)$"#
+    open-maximized true
+}
+
+
+// ────────────── File Chooser / Picker Dialogs (SAFE) ──────────────
+// Reduced keywords to avoid matching normal browser tabs
+window-rule {
+    match title=r#"(?i).*\b(open|save|save as|select|choose|picker)\b.*"#
+    open-floating true
+    min-width 640
+    min-height 520
+    max-width 1500
+    max-height 920
+}
+
+
+// ────────────── Dialogs / Settings / Auth Windows ──────────────
+window-rule {
+    match title=r#"(?i).*\b(dialog|properties|preferences|settings|authentication|permission|confirm|warning|error|about)\b.*"#
+    open-floating true
+}
+
+
+// ────────────── Picture-in-Picture (STRICT & SAFE) ──────────────
+window-rule {
+    // PiP windows use this exact title
+    match title=r#"^Picture-in-Picture$"#
+
+    open-floating true
+    default-column-width  { fixed 512; }
+    default-window-height { fixed 288; }
+
+    // Gap from bottom-right corner
+    default-floating-position x=30 y=30 relative-to="bottom-right"
+}
+
+
+// ────────────── Media Players ──────────────
+window-rule {
+    match app-id=r#"^(mpv|vlc)$"#
+    open-floating true
+    default-column-width  { fixed 1100; }
+    default-window-height { fixed 680; }
+}
+
+
+// ────────────── Terminals ──────────────
+window-rule {
+    match app-id=r#"^(kitty|Alacritty|foot)$"#
+    opacity 0.96
+}
+
+
+// ────────────── Inactive Windows (except terminals) ──────────────
+window-rule {
+    match is-active=false
+    exclude app-id=r#"^(kitty|Alacritty|foot)$"#
+    opacity 0.93
+}
+
+
+// ────────────── Privacy: Password Managers ──────────────
+window-rule {
+    match app-id=r#"^(org\.keepassxc\.KeePassXC|Enpass)$"#
+    block-out-from "screen-capture"
+}
+
+
+// ────────────── Small Utility Apps ──────────────
+window-rule {
+    match app-id=r#"^(gnome-calculator|org\.gnome\.Calculator)$"#
+    open-floating true
+    default-column-width  { fixed 420; }
+    default-window-height { fixed 520; }
+}

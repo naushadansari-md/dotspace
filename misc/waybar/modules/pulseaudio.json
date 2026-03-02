@@ -1,0 +1,25 @@
+{
+  "pulseaudio": {
+    "format": "{icon}",
+    "format-alt": "{icon} {volume}%",
+    "format-bluetooth": "{icon} {volume}% ",
+    "format-bluetooth-muted": " ",
+    "format-muted": "",
+    "format-source": " {volume}%",
+    "format-source-muted": "",
+    "format-icons": {
+      "headphones": "󰋋",
+      "handsfree": "󰋎",
+      "headset": "󰋎",
+      "phone": "",
+      "portable": "󰦧",
+      "car": "",
+      "default": ["", ""]
+    },
+    "scroll-step": 2,
+    "tooltip": true,
+    "tooltip-format": "Volume: {volume}%\nDevice: {desc}",
+    "on-click": "pypr toggle volume",
+    "on-click-right": "pamixer -t"
+  }
+}

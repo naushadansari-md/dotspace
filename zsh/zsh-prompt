@@ -1,0 +1,15 @@
+# Enable prompt expansion for future use (git, exit code, etc.)
+setopt prompt_subst
+
+autoload -Uz colors && colors
+
+# Matugen dynamic prompt
+# Style: user host path $
+# PROMPT='%B%F{15}%n@%f%F{10}%m%f %F{7}%~%f %F{15}›%f%b '
+PROMPT='%B%F{15}%n@%f%F{10}%m%f %F{7}%~%f %F{7}›%f%b '
+
+
+
+
+
+

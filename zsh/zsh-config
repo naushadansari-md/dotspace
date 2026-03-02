@@ -1,0 +1,73 @@
+## -------------------------------------------------
+## OPTIONS
+## -------------------------------------------------
+setopt correct
+setopt extendedglob
+setopt nocaseglob
+setopt rcexpandparam
+setopt nocheckjobs
+setopt numericglobsort
+setopt nobeep
+setopt appendhistory
+setopt inc_append_history
+setopt histignorealldups
+setopt histignorespace
+setopt histreduceblanks
+setopt extendedhistory
+setopt autocd
+
+WORDCHARS=${WORDCHARS//\/[&.;]}
+
+## -------------------------------------------------
+## COMPLETION (FAST)
+## -------------------------------------------------
+autoload -Uz compinit
+ZSH_COMPDUMP="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompdump"
+mkdir -p "${ZSH_COMPDUMP:h}"
+compinit -d "$ZSH_COMPDUMP" -C
+
+zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}'
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*' rehash true
+zstyle ':completion:*' menu select
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path ~/.cache/zsh
+
+## -------------------------------------------------
+## KEYBINDINGS
+## -------------------------------------------------
+bindkey -e
+bindkey '^[[H' beginning-of-line
+bindkey '^[[F' end-of-line
+bindkey '^[[3~' delete-char
+bindkey '^H' backward-kill-word
+
+## -------------------------------------------------
+## SAFE ALIASES
+## -------------------------------------------------
+alias cp='cp -i'
+alias df='df -h'
+alias free='free -m'
+alias gitu='git add . && git commit && git push'
+
+## -------------------------------------------------
+## PLUGINS
+## -------------------------------------------------
+source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.config/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+
+## -------------------------------------------------
+## LESS COLOR SUPPORT
+## -------------------------------------------------
+export LESS='-R'
+export LESS_TERMCAP_mb=$'\E[01;32m'
+export LESS_TERMCAP_md=$'\E[01;32m'
+export LESS_TERMCAP_me=$'\E[0m'
+export LESS_TERMCAP_se=$'\E[0m'
+export LESS_TERMCAP_so=$'\E[01;47;34m'
+export LESS_TERMCAP_ue=$'\E[0m'
+export LESS_TERMCAP_us=$'\E[01;36m'

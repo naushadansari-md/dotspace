@@ -1,0 +1,66 @@
+{
+  /* ============================
+   * Hyprland workspaces (1–5)
+   * ============================ */
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "on-click": "activate",
+
+    "on-scroll-up": "hyprctl dispatch workspace e+1",
+    "on-scroll-down": "hyprctl dispatch workspace e-1",
+    "disable-scroll": false,
+
+    "sort-by-number": true,
+    "all-outputs": false,
+
+    /* Keep workspaces always visible */
+    "persistent-workspaces": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": [],
+      "5": []
+    },
+
+    "format-icons": {
+      "1": "",   // terminal
+      "2": "",   // browser
+      "3": "",   // files
+      "4": "",   // chat
+      "5": "",   // music
+
+      "urgent": "",
+      "active": "",
+      "default": ""
+    },
+
+    "tooltip": false
+  },
+
+  /* ============================
+   * Niri workspaces (1–5)
+   * ============================ */
+  "niri/workspaces": {
+    "format": "{icon}",
+    "on-click": "activate",
+
+    /* Vertical workspace stack in Niri */
+    "on-scroll-up": "niri msg action focus-workspace-up",
+    "on-scroll-down": "niri msg action focus-workspace-down",
+    "disable-scroll": false,
+
+    "format-icons": {
+      "1": "",
+      "2": "",
+      "3": "",
+      "4": "",
+      "5": "",
+
+      "urgent": "",
+      "active": "",
+      "default": ""
+    },
+
+    "tooltip": false
+  }
+}

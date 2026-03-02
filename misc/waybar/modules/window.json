@@ -1,0 +1,48 @@
+{
+  "hyprland/window": {
+    "format": "{class}",
+    "separate-outputs": true,
+    "rewrite": {
+      "^firefox$": "  Firefox",
+      "^google-chrome$": "  Chrome",
+      "^chromium$": "  Chromium",
+      "^brave-browser$": "  Brave",
+
+      "^org\\.mozilla\\.Thunderbird$": "  Thunderbird",
+
+      "^Enpass$": "  Enpass",
+
+      "^code$": "󰨞  VS Code",
+      "^VSCodium$": "󰨞  VSCodium",
+      "^subl$": "  Sublime",
+      "^geany$": "  Geany",
+      "^org\\.pwmt\\.zathura$": " Zathura",
+      "^jetbrains-idea$": "  IntelliJ",
+
+      "^kitty$": "  Terminal",
+      "^Alacritty$": "  Terminal",
+      "^foot$": "  Terminal",
+      "^wezterm$": "  Terminal",
+      "^FloatTerm$": "  Terminal",
+
+      "^thunar$": "  Files",
+      "^nemo$": "  Files",
+      "^dolphin$": "  Files",
+      "^nautilus$": "  Files",
+
+      "^discord$": "  Discord",
+      "^org.telegram.desktop$": "  Telegram",
+      "^Slack$": "󰒱  Slack",
+      "^zoom$": "  Zoom",
+
+      "^Spotify$": "  Spotify",
+      "^vlc$": "󰕼  VLC",
+      "^mpv$": "󰐹  MPV",
+
+      "^org.pulseaudio.pavucontrol$": "󰕾  Audio",
+      "^blueman-manager$": "  Bluetooth",
+      "^nm-connection-editor$": "󰖩  Network",
+      "^nwg-look$": "󰒓  Settings"
+    }
+  }
+}

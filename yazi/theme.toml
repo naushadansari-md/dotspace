@@ -1,0 +1,191 @@
+# ===============================
+# YAZI - MATUGEN TEMPLATE
+# ===============================
+
+# : Manager [[[
+
+[mgr]
+cwd = { fg = "#ede0d4" }
+
+find_keyword  = { fg = "#ffb4ab", bold = true, italic = true, underline = true }
+find_position = { fg = "#ffb4ab", bold = true, italic = true }
+
+marker_copied   = { fg = "#0f2004", bg = "#d3eabc" }
+marker_cut      = { fg = "#442b00", bg = "#f3bd6e" }
+marker_marked   = { fg = "#690005", bg = "#ffb4ab" }
+marker_selected = { fg = "#3e2e16", bg = "#ddc2a1" }
+
+count_copied   = { fg = "#0f2004", bg = "#d3eabc" }
+count_cut      = { fg = "#442b00", bg = "#f3bd6e" }
+count_selected = { fg = "#3e2e16", bg = "#ddc2a1" }
+
+border_symbol = "│"
+border_style  = { fg = "#4f4539" }
+
+# : ]]]
+
+
+# : Indicator [[[
+
+[indicator]
+padding = { open = "█", close = "█" }
+
+# : ]]]
+
+
+# : Tabs [[[
+
+[tabs]
+active    = { fg = "#f3bd6e", bold = true, bg = "#18120b" }
+inactive  = { fg = "#d3c4b4", bg = "#18120b" }
+sep_inner = { open = "[", close = "]" }
+
+# : ]]]
+
+
+# : Mode [[[
+
+[mode]
+normal_main = { bg = "#f3bd6e", fg = "#442b00", bold = true }
+normal_alt  = { bg = "#4f4539", fg = "#d3c4b4" }
+
+select_main = { bg = "#ddc2a1", fg = "#3e2e16", bold = true }
+select_alt  = { bg = "#4f4539", fg = "#d3c4b4" }
+
+unset_main  = { bg = "#b7cea2", fg = "#243516", bold = true }
+unset_alt   = { bg = "#4f4539", fg = "#d3c4b4" }
+
+# : ]]]
+
+
+# : Status [[[
+
+[status]
+sep_left  = { open = "", close = "" }
+sep_right = { open = "", close = "" }
+
+perm_type  = { fg = "#ddc2a1" }
+perm_write = { fg = "#b7cea2" }
+perm_read  = { fg = "#f3bd6e" }
+perm_exec  = { fg = "#ffb4ab" }
+perm_sep   = { fg = "#f3bd6e" }
+
+progress_label  = { bold = true }
+progress_normal = { fg = "#f3bd6e", bg = "#251f17" }
+progress_error  = { fg = "#ffb4ab", bg = "#251f17" }
+
+# : ]]]
+
+
+# : Which [[[
+
+[which]
+cols = 3
+mask = { bg = "#251f17" }
+cand = { fg = "#f3bd6e" }
+rest = { fg = "#ede0d4" }
+desc = { fg = "#d3c4b4" }
+separator = " ▶ "
+separator_style = { fg = "#f3bd6e" }
+
+# : ]]]
+
+
+# : Notify [[[
+
+[notify]
+title_info  = { fg = "#f3bd6e" }
+title_warn  = { fg = "#ddc2a1" }
+title_error = { fg = "#ffb4ab" }
+
+# : ]]]
+
+
+# : Picker [[[
+
+[pick]
+border = { fg = "#f3bd6e" }
+active = { fg = "#b7cea2", bold = true }
+
+# : ]]]
+
+
+# : Input [[[
+
+[input]
+border = { fg = "#f3bd6e" }
+value  = { fg = "#ede0d4" }
+
+# : ]]]
+
+
+# : Completion [[[
+
+[cmp]
+border = { fg = "#f3bd6e", bg = "#251f17" }
+
+# : ]]]
+
+
+# : Tasks [[[
+
+[tasks]
+border  = { fg = "#f3bd6e" }
+hovered = { fg = "#b7cea2", underline = true }
+
+# : ]]]
+
+
+# : Help [[[
+
+[help]
+on     = { fg = "#ede0d4" }
+run    = { fg = "#f3bd6e" }
+footer = { fg = "#3e2e16", bg = "#ddc2a1" }
+
+# : ]]]
+
+
+# : Icons [[[
+
+[icon]
+append_exts = [
+  { name = "pdf",  text = "󰈦" },
+  { name = "md",   text = "" },
+  { name = "txt",  text = "" },
+  { name = "zip",  text = "" },
+  { name = "tar",  text = "" },
+  { name = "gz",   text = "" },
+  { name = "png",  text = "󰉏" },
+  { name = "jpg",  text = "󰉏" },
+  { name = "mp4",  text = "" },
+  { name = "mp3",  text = "" },
+  { name = "py",   text = "" },
+  { name = "js",   text = "" },
+  { name = "rs",   text = "" },
+  { name = "go",   text = "" },
+  { name = "sh",   text = "" },
+  { name = "json", text = "󰘦" },
+  { name = "toml", text = "" },
+]
+
+# : ]]]
+
+
+# : Filetype [[[
+
+[filetype]
+rules = [
+  { mime = "image/*", fg = "#b7cea2" },
+  { mime = "{audio,video}/*", fg = "#ddc2a1" },
+  { mime = "application/{zip,rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,compress}", fg = "#f3bd6e" },
+  { mime = "application/{pdf,doc,docx,rtf}", fg = "#f3bd6e" },
+
+  { name = "*", is = "orphan", bg = "#93000a" },
+  { name = "*", is = "exec", fg = "#b7cea2" },
+
+  { url = "*",  fg = "#ede0d4" },
+  { url = "*/", fg = "#f3bd6e" },
+]
+
+# : ]]]

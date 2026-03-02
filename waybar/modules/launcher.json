@@ -1,0 +1,8 @@
+// icons:                  
+{
+  "custom/launcher": {
+    "tooltip-format": "Application launcher",
+    "on-click": "~/.config/hypr/scripts/dock-launcher-exec.sh nwg-drawer -ovl -c 7",
+    "format": " "
+  }
+}

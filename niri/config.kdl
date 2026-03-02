@@ -1,0 +1,15 @@
+// ────────────── Core ──────────────
+include "autostart.kdl"
+include "env.kdl"
+
+// ────────────── Input & Keybindings ──────────────
+include "input.kdl"
+include "keybinds.kdl"
+
+// ────────────── Behavior & Rules ──────────────
+include "windowrules.kdl"
+include "misc.kdl"
+
+// ────────────── Appearance ──────────────
+include "theme.kdl"
+include "output.kdl"

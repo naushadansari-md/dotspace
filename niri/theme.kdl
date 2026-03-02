@@ -1,0 +1,43 @@
+// ────────────── GTK / System Theme ──────────────
+spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "gtk-theme" "Gruvbox-Dark"
+spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "icon-theme" "Gruvbox-Plus-Dark"
+spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "text-scaling-factor" "1"
+spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "color-scheme" "prefer-dark"
+
+// ────────────── Layout Behavior ──────────────
+layout {
+    gaps 10
+    center-focused-column "never"
+    empty-workspace-above-first
+
+    preset-column-widths {
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.66667
+    }
+
+    default-column-width { 
+    proportion 0.5 
+     }
+
+    focus-ring { 
+           off 
+    }
+    background-color "transparent"
+
+    border {
+        on
+        width 1
+    }
+
+    shadow {
+        on
+        draw-behind-window true
+        softness 30
+        spread 5
+        offset x=0 y=5
+    }
+}
+
+// ────────────── Matugen Dynamic Colors ──────────────
+include "./colors.kdl"
