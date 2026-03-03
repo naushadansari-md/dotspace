@@ -80,10 +80,10 @@ case "$choice" in
     [ -x "$ABOUT_SCRIPT" ] && "$ABOUT_SCRIPT" \
       || notify-send "Apple Menu" "Missing about script: $ABOUT_SCRIPT"
     ;;
-  "System Settings…") open_settings ;;
+  "System Settings") open_settings ;;
   "Lock Screen")      lock_screen ;;
   "Sleep")            confirm "Sleep?" && systemctl suspend ;;
-  "Restart…")         confirm "Restart?" && systemctl reboot ;;
-  "Shut Down…")       confirm "Shut Down?" && systemctl poweroff ;;
-  "Log Out…")         confirm "Log Out?" && logout ;;
+  "Restart")         confirm "Restart?" && systemctl reboot ;;
+  "Shut Down")       confirm "Shut Down?" && systemctl poweroff ;;
+  "Log Out")         confirm "Log Out?" && hyprctl dispatch exit ;;
 esac

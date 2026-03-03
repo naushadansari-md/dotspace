@@ -6,7 +6,7 @@ START_SCRIPT="$HOME/.config/hypr/scripts/start-dock.sh"
 
 # ---------- Tuning (macOS feel) ----------
 SHOW_DELAY_MS="${SHOW_DELAY_MS:-180}"
-REVEAL_HOLD_MS="${REVEAL_HOLD_MS:-1600}"
+REVEAL_HOLD_MS="${REVEAL_HOLD_MS:-1000}"
 HIDE_DELAY_MS="${HIDE_DELAY_MS:-700}"
 BOTTOM_ZONE_PX="${BOTTOM_ZONE_PX:-32}"
 
