@@ -19,7 +19,7 @@ window {
     location: northwest;
     anchor: northwest;
 
-    x-offset: 10px;
+    x-offset: 12px;
     y-offset: 10px;   /* Adjust if Waybar height differs */
 
     background-color: @panel-bg;
