@@ -48,10 +48,10 @@ start_swayidle() {
 
   exec swayidle -w \
     timeout "$WARN_T" "$WARN" \
-    timeout "$LOCK_T" 'swaylock -f' \
+    timeout "$LOCK_T" 'hyprlock -f' \
     timeout "$OFF_T"  'niri msg action power-off-monitors' \
     resume            'niri msg action power-on-monitors' \
-    before-sleep      'swaylock -f'
+    before-sleep      'hyprlock -f'
 }
 
 run() {

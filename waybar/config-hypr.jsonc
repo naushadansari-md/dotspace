@@ -11,37 +11,33 @@
 
     "modules-left": [
       "custom/appmenu",
-      "hyprland/workspaces",
-      "hyprland/window",
-      "custom/desktop"
+      "hyprland/workspaces" 
     ],
 
     "modules-center": [
-      "clock"
+    "custom/center"
     ],
 
     "modules-right": [
-      "tray",
-      "custom/notification",
-      "pulseaudio",
-      "network",
-      "custom/battery",
-      "group/power"
+    "tray",
+    "network",
+    "pulseaudio",
+    "custom/battery",
+    "clock",
+    "custom/notification"
     ],
 
     "include": [
       "/home/saad/.config/waybar/modules/clock.json",
       "/home/saad/.config/waybar/modules/battery.json",
-      "/home/saad/.config/waybar/modules/hardware.json",
       "/home/saad/.config/waybar/modules/appmenu.json",
       "/home/saad/.config/waybar/modules/pulseaudio.json",
       "/home/saad/.config/waybar/modules/network.json",
       "/home/saad/.config/waybar/modules/workspaces.json",
-      "/home/saad/.config/waybar/modules/power.json",
       "/home/saad/.config/waybar/modules/tray.json",
       "/home/saad/.config/waybar/modules/notification.json",
       "/home/saad/.config/waybar/modules/window.json",
-      "/home/saad/.config/waybar/modules/desktop.json"
+       "/home/saad/.config/waybar/modules/center.json"
       
     ]
   }

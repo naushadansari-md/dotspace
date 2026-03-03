@@ -3,6 +3,9 @@
    Waybar + Hyprland / Niri (rofi-wayland)
    ========================================= */
 
+@import "/home/saad/.config/rofi/matugen-colors.rasi"
+
+
 * {
     font: "JetBrainsMono Nerd Font 10";
     text-color: rgba(255,255,255,0.92);
@@ -19,12 +22,12 @@ window {
     location: northwest;
     anchor: northwest;
 
-    x-offset: 12px;
-    y-offset: 10px;   /* Adjust if Waybar height differs */
+    x-offset: 25px;
+    y-offset: 12px;   /* Adjust if Waybar height differs */
 
     background-color: @panel-bg;
     border: 1px;
-    border-color: @panel-border;
+    border-color: @primary;
     border-radius: 10px;
     padding: 8px;
 }

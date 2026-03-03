@@ -1,6 +1,8 @@
 /* =========================================
    About This System – Polished Compact macOS
    ========================================= */
+   
+@import "/home/saad/.config/rofi/matugen-colors.rasi"
 
 * {
     font: "JetBrainsMono Nerd Font 10";
@@ -21,12 +23,16 @@
 
 window {
     width: 460px;
-    location: center;
-    anchor: center;
+
+    location: north;   /* screen top */
+    anchor: north;     /* anchor to top center */
+
+    y-offset: 130px;    /* distance from top (adjust if needed) */
 
     background-color: @panel-bg;
     border: 1px;
-    border-color: @panel-border;
+    border-color: @primary;
+    /* border-color: @panel-border; */
     border-radius: 10px;
     padding: 10px;
 }

@@ -1,0 +1,74 @@
+/* =========================================
+   Confirm Dialog – Matugen Integrated (FIX)
+   ========================================= */
+
+@import "/home/saad/.config/rofi/matugen-colors.rasi"
+
+* {
+    font: "JetBrainsMono Nerd Font 10";
+    text-color: rgba(255,255,255,0.92);
+    background-color: transparent;
+
+    panel-bg: rgba(18,18,18,0.90);
+
+    row-hover: rgba(255,255,255,0.06);
+    row-selected: rgba(255,255,255,0.14);  /* ✅ no alpha() */
+
+    prompt-color: rgba(255,255,255,0.70);
+}
+
+window {
+    width: 210px;
+
+    location: northwest;
+    anchor: northwest;
+
+    x-offset: 25px;
+    y-offset: 44px;
+
+    background-color: @panel-bg;
+
+    border: 1px;
+    border-color: @primary;   /* ✅ matugen border (no alpha()) */
+
+    border-radius: 10px;
+    padding: 10px;
+}
+
+mainbox { spacing: 6px; }
+
+inputbar {
+    enabled: true;
+    background-color: rgba(255,255,255,0.05);
+    border-radius: 8px;
+    padding: 8px 10px;
+    children: [ prompt ];
+}
+
+prompt { text-color: @prompt-color; }
+
+listview {
+    columns: 1;
+    lines: 2;
+    fixed-height: true;
+    scrollbar: false;
+    spacing: 6px;
+}
+
+element {
+    border-radius: 8px;
+    padding: 8px 10px;
+    background-color: transparent;
+}
+
+element normal.active {
+    background-color: @row-hover;
+}
+
+element selected.normal {
+    background-color: @row-selected;
+}
+
+element-text {
+    text-color: @text-color;
+}

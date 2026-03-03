@@ -1,44 +1,39 @@
 {
   "hyprland/window": {
     "format": "{class}",
+    "format-empty": "  Desktop",
     "separate-outputs": true,
+    "max-length": 60,
+    "tooltip": false,
     "rewrite": {
       "^firefox$": "  Firefox",
       "^google-chrome$": "  Chrome",
       "^chromium$": "  Chromium",
       "^brave-browser$": "  Brave",
-
       "^org\\.mozilla\\.Thunderbird$": "  Thunderbird",
-
       "^Enpass$": "  Enpass",
-
       "^code$": "󰨞  VS Code",
       "^VSCodium$": "󰨞  VSCodium",
       "^subl$": "  Sublime",
       "^geany$": "  Geany",
       "^org\\.pwmt\\.zathura$": " Zathura",
       "^jetbrains-idea$": "  IntelliJ",
-
       "^kitty$": "  Terminal",
       "^Alacritty$": "  Terminal",
       "^foot$": "  Terminal",
       "^wezterm$": "  Terminal",
       "^FloatTerm$": "  Terminal",
-
       "^thunar$": "  Files",
       "^nemo$": "  Files",
       "^dolphin$": "  Files",
       "^nautilus$": "  Files",
-
       "^discord$": "  Discord",
       "^org\\.telegram\\.desktop$": "  Telegram",
       "^Slack$": "󰒱  Slack",
       "^zoom$": "  Zoom",
-
       "^Spotify$": "  Spotify",
       "^vlc$": "󰕼  VLC",
       "^mpv$": "󰐹  MPV",
-
       "^org\\.pulseaudio\\.pavucontrol$": "󰕾  Audio",
       "^blueman-manager$": "  Bluetooth",
       "^nm-connection-editor$": "󰖩  Network",
@@ -48,23 +43,22 @@
 
   "niri/window": {
     "format": "{app_id}",
+    "format-empty": "  Desktop",
     "separate-outputs": true,
+    "max-length": 60,
+    "tooltip": false,
     "rewrite": {
       "^firefox$": "  Firefox",
       "^org\\.mozilla\\.firefox$": "  Firefox",
-
       "^google-chrome$": "  Chrome",
       "^com\\.google\\.Chrome$": "  Chrome",
       "^chromium$": "  Chromium",
       "^org\\.chromium\\.Chromium$": "  Chromium",
       "^brave-browser$": "  Brave",
       "^com\\.brave\\.Browser$": "  Brave",
-
       "^org\\.mozilla\\.Thunderbird$": "  Thunderbird",
-
       "^Enpass$": "  Enpass",
       "^io\\.enpass\\.Enpass$": "  Enpass",
-
       "^code$": "󰨞  VS Code",
       "^com\\.visualstudio\\.code$": "󰨞  VS Code",
       "^VSCodium$": "󰨞  VSCodium",
@@ -73,32 +67,27 @@
       "^geany$": "  Geany",
       "^org\\.pwmt\\.zathura$": " Zathura",
       "^jetbrains-idea$": "  IntelliJ",
-
       "^kitty$": "  Terminal",
       "^Alacritty$": "  Terminal",
       "^foot$": "  Terminal",
       "^org\\.wezfurlong\\.wezterm$": "  Terminal",
       "^wezterm$": "  Terminal",
-
       "^thunar$": "  Files",
       "^nemo$": "  Files",
       "^org\\.gnome\\.Nautilus$": "  Files",
       "^nautilus$": "  Files",
       "^org\\.kde\\.dolphin$": "  Files",
       "^dolphin$": "  Files",
-
       "^discord$": "  Discord",
       "^org\\.telegram\\.desktop$": "  Telegram",
       "^Slack$": "󰒱  Slack",
       "^zoom$": "  Zoom",
       "^us\\.zoom\\.Zoom$": "  Zoom",
-
       "^Spotify$": "  Spotify",
       "^com\\.spotify\\.Client$": "  Spotify",
       "^vlc$": "󰕼  VLC",
       "^org\\.videolan\\.VLC$": "󰕼  VLC",
       "^mpv$": "󰐹  MPV",
-
       "^org\\.pulseaudio\\.pavucontrol$": "󰕾  Audio",
       "^blueman-manager$": "  Bluetooth",
       "^nm-connection-editor$": "󰖩  Network",

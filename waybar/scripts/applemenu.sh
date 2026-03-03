@@ -8,7 +8,6 @@ entries() {
   printf '%s\0icon\x1fsystem-help\n' "About This System"
   printf '%s\0icon\x1fpreferences-system\n' "System Settings…"
 
-  # Separator (works reliably)
   printf '%s\0nonselectable\x1ftrue\x1fclass\x1fseparator\n' "──────────────"
 
   printf '%s\0icon\x1fsystem-lock-screen\n' "Lock Screen"
@@ -21,9 +20,12 @@ entries() {
   printf '%s\0icon\x1fsystem-log-out\n' "Log Out…"
 }
 
+# Confirm dialog (position + style handled inside confirm.rasi)
 confirm() {
-  printf "Cancel\nOK\n" | rofi -dmenu -i -p "$1" \
-    -theme-str 'window{width:220px;} listview{lines:2;} inputbar{enabled:false;}' \
+  local prompt="$1"
+  printf "Cancel\nOK\n" | rofi -dmenu -i -p "$prompt" \
+    -no-custom -selected-row 1 \
+    -theme "${HOME}/.config/rofi/confirm.rasi" \
     | grep -qx "OK"
 }
 
@@ -78,9 +80,9 @@ case "$choice" in
     fi
     ;;
   "System Settings…") open_settings ;;
-  "Lock Screen") lock_screen ;;
-  "Sleep") confirm "Sleep?" && systemctl suspend ;;
-  "Restart…") confirm "Restart?" && systemctl reboot ;;
-  "Shut Down…") confirm "Shut Down?" && systemctl poweroff ;;
-  "Log Out…") confirm "Log Out?" && logout ;;
+  "Lock Screen")      lock_screen ;;
+  "Sleep")            confirm "Sleep?" && systemctl suspend ;;
+  "Restart…")         confirm "Restart?" && systemctl reboot ;;
+  "Shut Down…")       confirm "Shut Down?" && systemctl poweroff ;;
+  "Log Out…")         confirm "Log Out?" && logout ;;
 esac

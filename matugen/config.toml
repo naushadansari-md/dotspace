@@ -37,9 +37,14 @@ output_path = '~/.config/swaync/colors.css'
 post_hook = 'swaync-client -rs'
 
 [templates.nwg_drawer]
-input_path = "~/.config/matugen/templates/nwg-drawer.css"
-output_path = "~/.config/nwg-drawer/drawer.css"
-post_hook = "pkill -x nwg-drawer 2>/dev/null || true"
+input_path = '~/.config/matugen/templates/nwg-drawer.css'
+output_path = '~/.config/nwg-drawer/drawer.css'
+post_hook = 'pkill -x nwg-drawer 2>/dev/null || true'
+
+[templates.rofi]
+input_path = '~/.config/matugen/templates/rofi-colors.rasi'
+output_path = '~/.config/rofi/matugen-colors.rasi'
+post_hook = 'pkill rofi || true'
 
 [templates.gtk3]
 input_path = '~/.config/matugen/templates/gtk-colors.css'

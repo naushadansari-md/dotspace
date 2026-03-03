@@ -161,13 +161,11 @@ binds {
 
 
     // ────────────── Utilities ──────────────
-    MOD+SHIFT+E    { quit; }
-    CTRL+ALT+Delete { quit; }
-    MOD+SHIFT+P    { power-off-monitors; }
+    MOD+SHIFT+E       { quit; }
+    CTRL+ALT+Delete   { quit; }
+    MOD+SHIFT+P       { power-off-monitors; }
 
-    MOD+SHIFT+L hotkey-overlay-title="Lock the Screen: swaylock" {
-        spawn "swaylock";
-    }
+    MOD+SHIFT+L hotkey-overlay-title="Lock the Screen: hyprlock" { spawn "hyprlock"; }
 
     MOD+S          { screenshot; }
     MOD+SHIFT+S    { screenshot-screen write-to-disk=true; }

@@ -1,0 +1,8 @@
+{
+  "custom/center": {
+    "exec": "sh -c '\nWJSON=\"$HOME/.config/waybar/modules/window.json\";\nname=\"\";\nrwpath=\"\";\n\n# Prefer Hyprland when it is actually running\nif [ -n \"$HYPRLAND_INSTANCE_SIGNATURE\" ] && command -v hyprctl >/dev/null 2>&1; then\n  name=$(hyprctl -j activewindow 2>/dev/null | jq -r \".class // \\\"\\\"\" );\n  rwpath=\"hyprland/window\";\n\n# Otherwise try niri only if niri IPC responds\nelif command -v niri >/dev/null 2>&1; then\n  if niri msg --json focused-window >/dev/null 2>&1; then\n    name=$(niri msg --json focused-window 2>/dev/null | jq -r \"if .==null then \\\"\\\" else (.app_id // \\\"\\\") end\");\n    rwpath=\"niri/window\";\n  fi\nfi;\n\n[ -n \"$name\" ] || { echo \"  Desktop\"; exit 0; };\n\nout=$(jq -r --arg name \"$name\" --arg rw \"$rwpath\" \"\n  (.[$rw].rewrite // {})\n  | to_entries[]?\n  | .key as \\$k\n  | select(\\$name | test(\\$k))\n  | .value\n\" \"$WJSON\" 2>/dev/null | head -n1);\n\necho \"${out:-$name}\";\n'",
+    "interval": 1,
+    "tooltip": false,
+    "max-length": 60
+  }
+}

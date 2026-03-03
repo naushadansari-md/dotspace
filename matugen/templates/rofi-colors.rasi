@@ -1,0 +1,5 @@
+/* Matugen -> Rofi colors (generated) */
+* {
+  primary: {{colors.primary.default.hex}};
+  outline: {{colors.outline.default.hex}};
+}

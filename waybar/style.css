@@ -3,15 +3,12 @@
 --------------------------------*/
 @import "/home/saad/.config/waybar/colors.css";
 @import "/home/saad/.config/waybar/style/clock.css";
-@import "/home/saad/.config/waybar/style/window.css";
 @import "/home/saad/.config/waybar/style/appmenu.css";
 @import "/home/saad/.config/waybar/style/pulseaudio.css";
 @import "/home/saad/.config/waybar/style/network.css";
 @import "/home/saad/.config/waybar/style/workspaces.css";
-@import "/home/saad/.config/waybar/style/power.css";
 @import "/home/saad/.config/waybar/style/tray.css";
 @import "/home/saad/.config/waybar/style/custom-battery.css";
-@import "/home/saad/.config/waybar/style/desktop.css";
 @import "/home/saad/.config/waybar/style/notification.css";
 
 /* ------------------------------
@@ -71,10 +68,9 @@ window#waybar {
 #backlight,
 #network,
 #pulseaudio,
-#window,
 #tray,
-#desktop,
 #custom-appmenu,
+#custom-center,
 #custom-notification{
   min-height: 18px;
   padding: 2px 10px;
