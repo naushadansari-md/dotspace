@@ -63,7 +63,6 @@ MEM="$(mem_total_gib)"
 GPU="$(gpu_name)"
 UP="$(uptime_pretty)"
 
-# Trim very long GPU/CPU just a bit (optional, keeps compact look)
 CPU_SHORT="$(printf "%s" "$CPU" | sed 's/(R)//g; s/(TM)//g; s/  */ /g' | cut -c1-48)"
 GPU_SHORT="$(printf "%s" "$GPU" | sed 's/Intel Corporation //; s/  */ /g' | cut -c1-48)"
 
@@ -71,7 +70,6 @@ PLAIN="$(printf "OS: %s\nKernel: %s\nHost: %s\nCPU: %s\nMemory: %s\nGPU: %s\nUpt
   "$OS" "$KERNEL" "$HOST" "$CPU" "$MEM" "$GPU" "$UP")"
 
 menu() {
-  # --- IMPORTANT: class tags make rasi rules work ---
   printf '%s\0nonselectable\x1ftrue\x1fmarkup\x1ftrue\x1ficon\x1f%s\x1fclass\x1ftitle\n' \
     "<span weight='bold'>Arch Linux</span>" "$ICON_TITLE"
 
@@ -89,12 +87,15 @@ menu() {
 
   printf '%s\0nonselectable\x1ftrue\x1fclass\x1fdivider\n' "────────────────────"
 
-  printf '%s\0markup\x1ftrue\x1ficon\x1fedit-copy\x1fclass\x1faction\n' "<span weight='bold'>Copy</span>"
-  printf '%s\0markup\x1ftrue\x1ficon\x1fpreferences-system\x1fclass\x1faction\n' "<span weight='bold'>Settings</span>"
-  printf '%s\0markup\x1ftrue\x1ficon\x1fwindow-close\x1fclass\x1faction\n' "<span weight='bold'>Close</span>"
+  # Changed only these three icons
+  printf '%s\0markup\x1ftrue\x1ficon\x1fedit-copy-symbolic\x1fclass\x1faction\n' "<span weight='bold'>Copy</span>"
+  printf '%s\0markup\x1ftrue\x1ficon\x1fpreferences-system-symbolic\x1fclass\x1faction\n' "<span weight='bold'>Settings</span>"
+  printf '%s\0markup\x1ftrue\x1ficon\x1fwindow-close-symbolic\x1fclass\x1faction\n' "<span weight='bold'>Close</span>"
 }
 
-choice="$(menu | rofi -dmenu -i -p "" -show-icons -markup-rows -no-custom -theme "$THEME" || true)"
+choice="$(menu | rofi -dmenu -i -p "" -show-icons -markup-rows -no-custom \
+  -icon-theme "AppleMenu" \
+  -theme "$THEME" || true)"
 
 case "$choice" in
   *Copy*)     copy_to_clipboard "$PLAIN" ;;

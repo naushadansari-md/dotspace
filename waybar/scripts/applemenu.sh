@@ -5,22 +5,21 @@ THEME="${HOME}/.config/rofi/applemenu.rasi"
 ABOUT_SCRIPT="${HOME}/.config/waybar/scripts/about-system.sh"
 
 entries() {
-  printf '%s\0icon\x1fsystem-help\n' "About This System"
-  printf '%s\0icon\x1fpreferences-system\n' "System Settings…"
+  printf '%s\0icon\x1fhelp-about-symbolic\n' "About This System"
+  printf '%s\0icon\x1fpreferences-system-symbolic\n' "System Settings"
 
   printf '%s\0nonselectable\x1ftrue\x1fclass\x1fseparator\n' "──────────────"
 
-  printf '%s\0icon\x1fsystem-lock-screen\n' "Lock Screen"
-  printf '%s\0icon\x1fsystem-suspend\n' "Sleep"
+  printf '%s\0icon\x1fsystem-lock-screen-symbolic\n' "Lock Screen"
+  printf '%s\0icon\x1fsystem-suspend-symbolic\n' "Sleep"
 
   printf '%s\0nonselectable\x1ftrue\x1fclass\x1fseparator\n' "──────────────"
 
-  printf '%s\0icon\x1fsystem-reboot\n' "Restart…"
-  printf '%s\0icon\x1fsystem-shutdown\n' "Shut Down…"
-  printf '%s\0icon\x1fsystem-log-out\n' "Log Out…"
+  printf '%s\0icon\x1fsystem-reboot-symbolic\n' "Restart"
+  printf '%s\0icon\x1fsystem-shutdown-symbolic\n' "Shut Down"
+  printf '%s\0icon\x1fsystem-log-out-symbolic\n' "Log Out"
 }
 
-# Confirm dialog (position + style handled inside confirm.rasi)
 confirm() {
   local prompt="$1"
   printf "Cancel\nOK\n" | rofi -dmenu -i -p "$prompt" \
@@ -69,15 +68,17 @@ logout() {
   fi
 }
 
-choice="$(entries | rofi -dmenu -i -p "" -show-icons -theme "$THEME" || true)"
+choice="$(entries | rofi -dmenu -i -p "" \
+  -show-icons \
+  -icon-theme "AppleMenu" \
+  -theme "$THEME" || true)"
+
+[ -n "${choice:-}" ] || exit 0
 
 case "$choice" in
   "About This System")
-    if [ -x "$ABOUT_SCRIPT" ]; then
-      "$ABOUT_SCRIPT"
-    else
-      notify-send "Apple Menu" "Missing about script: $ABOUT_SCRIPT"
-    fi
+    [ -x "$ABOUT_SCRIPT" ] && "$ABOUT_SCRIPT" \
+      || notify-send "Apple Menu" "Missing about script: $ABOUT_SCRIPT"
     ;;
   "System Settings…") open_settings ;;
   "Lock Screen")      lock_screen ;;

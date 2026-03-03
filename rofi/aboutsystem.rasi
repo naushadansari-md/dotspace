@@ -1,7 +1,7 @@
 /* =========================================
    About This System – Polished Compact macOS
    ========================================= */
-   
+
 @import "/home/saad/.config/rofi/matugen-colors.rasi"
 
 * {
@@ -24,15 +24,14 @@
 window {
     width: 460px;
 
-    location: north;   /* screen top */
-    anchor: north;     /* anchor to top center */
+    location: north;
+    anchor: north;
 
-    y-offset: 130px;    /* distance from top (adjust if needed) */
+    y-offset: 130px;
 
     background-color: @panel-bg;
     border: 1px;
     border-color: @primary;
-    /* border-color: @panel-border; */
     border-radius: 10px;
     padding: 10px;
 }
@@ -46,7 +45,7 @@ listview {
     columns: 1;
     fixed-height: false;
     scrollbar: false;
-    spacing: 2px;
+    spacing: 1px;
 }
 
 /* -------- Base Rows -------- */
@@ -65,11 +64,18 @@ element selected.normal {
     background-color: @row-selected;
 }
 
-/* -------- Icon -------- */
+/* -------- Icons -------- */
 
+/* Default smaller icon size (actions + info) */
 element-icon {
-    size: 22px;
-    margin: 1px 6px 0px 0px;
+    size: 15px;
+    margin: 0px 8px 0px 0px;
+}
+
+/* Larger Arch logo (title only) */
+element.title element-icon {
+    size: 18px;
+    margin: 1px 8px 0px 0px;
 }
 
 /* -------- Title -------- */
@@ -97,7 +103,7 @@ element-text.subtitle {
 /* -------- Divider -------- */
 
 element.divider {
-    padding: 0px 80px;   /* shorter centered line */
+    padding: 0px 80px;
     border-radius: 0px;
 }
 
@@ -108,14 +114,14 @@ element-text.divider {
 /* -------- Info Rows -------- */
 
 element.info {
-    padding: 1px 8px;
+    padding: 0px 8px;
 }
 
 element-text.info {
     text-color: rgba(255,255,255,0.88);
 }
 
-/* Remove hover highlight for info rows (more macOS-like) */
+/* Remove hover highlight for info rows */
 element.info normal.active {
     background-color: transparent;
 }
