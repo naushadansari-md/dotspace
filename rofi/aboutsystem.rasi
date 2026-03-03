@@ -1,0 +1,130 @@
+/* =========================================
+   About This System – Polished Compact macOS
+   ========================================= */
+
+* {
+    font: "JetBrainsMono Nerd Font 10";
+    title-font: "Noto Sans 18";
+    subtitle-font: "Noto Sans 11";
+
+    text-color: rgba(255,255,255,0.92);
+    background-color: transparent;
+
+    panel-bg: rgba(18,18,18,0.76);
+    panel-border: rgba(255,255,255,0.05);
+
+    row-hover: rgba(255,255,255,0.04);
+    row-selected: rgba(255,255,255,0.09);
+}
+
+/* -------- Window -------- */
+
+window {
+    width: 460px;
+    location: center;
+    anchor: center;
+
+    background-color: @panel-bg;
+    border: 1px;
+    border-color: @panel-border;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+/* Hide search */
+inputbar { enabled: false; }
+
+mainbox { spacing: 0px; }
+
+listview {
+    columns: 1;
+    fixed-height: false;
+    scrollbar: false;
+    spacing: 2px;
+}
+
+/* -------- Base Rows -------- */
+
+element {
+    border-radius: 8px;
+    padding: 2px 8px;
+    background-color: transparent;
+}
+
+element normal.active {
+    background-color: @row-hover;
+}
+
+element selected.normal {
+    background-color: @row-selected;
+}
+
+/* -------- Icon -------- */
+
+element-icon {
+    size: 22px;
+    margin: 1px 6px 0px 0px;
+}
+
+/* -------- Title -------- */
+
+element.title {
+    padding: 2px 8px 6px 8px;
+}
+
+element-text.title {
+    font: @title-font;
+    text-color: rgba(255,255,255,0.98);
+}
+
+/* -------- Subtitle -------- */
+
+element.subtitle {
+    padding: 0px 8px 6px 8px;
+}
+
+element-text.subtitle {
+    font: @subtitle-font;
+    text-color: rgba(255,255,255,0.55);
+}
+
+/* -------- Divider -------- */
+
+element.divider {
+    padding: 0px 80px;   /* shorter centered line */
+    border-radius: 0px;
+}
+
+element-text.divider {
+    text-color: rgba(255,255,255,0.08);
+}
+
+/* -------- Info Rows -------- */
+
+element.info {
+    padding: 1px 8px;
+}
+
+element-text.info {
+    text-color: rgba(255,255,255,0.88);
+}
+
+/* Remove hover highlight for info rows (more macOS-like) */
+element.info normal.active {
+    background-color: transparent;
+}
+
+/* -------- Action Buttons -------- */
+
+element.action {
+    padding: 4px 8px;
+    border-radius: 8px;
+}
+
+element.action normal.active {
+    background-color: rgba(255,255,255,0.04);
+}
+
+element.action selected.normal {
+    background-color: rgba(255,255,255,0.09);
+}

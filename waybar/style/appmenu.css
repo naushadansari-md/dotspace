@@ -1,0 +1,10 @@
+#custom-applemenu {
+  background: rgba(30, 30, 30, 0.45);
+  border-radius: 16px;
+  padding: 6px 16px;
+  margin: 6px;
+  font-size: 16px;
+  color: rgba(255,255,255,0.95);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+#custom-applemenu:hover { background: rgba(255,255,255,0.15); }
