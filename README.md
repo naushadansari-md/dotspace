@@ -33,15 +33,17 @@ All packaged with **safe installers**, **automatic backups**, and **idempotent s
 
 <h3 align="center">Hyprland</h3>
 
+<h3 align="center">Hyprland</h3>
+
 <p align="center">
   <a href="assets/screenshots/hypr-1.png">
-    <img src="assets/screenshots/hypr-1.png" width="30%" />
+    <img src="assets/screenshots/hypr-1.png" width="30%">
   </a>
   <a href="assets/screenshots/hypr-2.png">
-    <img src="assets/screenshots/hypr-2.png" width="30%" />
+    <img src="assets/screenshots/hypr-2.png" width="30%">
   </a>
   <a href="assets/screenshots/hypr-3.png">
-    <img src="assets/screenshots/hypr-3.png" width="30%" />
+    <img src="assets/screenshots/hypr-3.png" width="30%">
   </a>
 </p>
 
@@ -49,13 +51,13 @@ All packaged with **safe installers**, **automatic backups**, and **idempotent s
 
 <p align="center">
   <a href="assets/screenshots/niri-1.png">
-    <img src="assets/screenshots/niri-1.png" width="60%" />
+    <img src="assets/screenshots/niri-1.png" width="30%">
   </a>
   <a href="assets/screenshots/niri-2.png">
-    <img src="assets/screenshots/niri-2.png" width="60%" />
+    <img src="assets/screenshots/niri-2.png" width="30%">
   </a>
   <a href="assets/screenshots/niri-3.png">
-    <img src="assets/screenshots/niri-3.png" width="60%" />
+    <img src="assets/screenshots/niri-3.png" width="30%">
   </a>
 </p>
 
