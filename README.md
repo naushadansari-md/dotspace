@@ -48,8 +48,11 @@ All packaged with **safe installers**, **automatic backups**, and **idempotent s
 <h3 align="center">Niri</h3>
 
 <p align="center">
-  <a href="assets/screenshots/niri.png">
-    <img src="assets/screenshots/niri.png" width="60%" />
+  <a href="assets/screenshots/niri-1.png">
+    <img src="assets/screenshots/niri-1.png" width="60%" />
+  </a>
+  <a href="assets/screenshots/niri-2.png">
+    <img src="assets/screenshots/niri-2.png" width="60%" />
   </a>
 </p>
 
