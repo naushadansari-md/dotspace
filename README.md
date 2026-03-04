@@ -54,6 +54,9 @@ All packaged with **safe installers**, **automatic backups**, and **idempotent s
   <a href="assets/screenshots/niri-2.png">
     <img src="assets/screenshots/niri-2.png" width="60%" />
   </a>
+  <a href="assets/screenshots/niri-3.png">
+    <img src="assets/screenshots/niri-3.png" width="60%" />
+  </a>
 </p>
 
 <p align="center">
