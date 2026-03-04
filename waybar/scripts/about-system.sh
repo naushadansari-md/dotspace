@@ -94,7 +94,7 @@ menu() {
 }
 
 choice="$(menu | rofi -dmenu -i -p "" -show-icons -markup-rows -no-custom \
-  -icon-theme "AppleMenu" \
+  -icon-theme "AppMenu" \
   -theme "$THEME" || true)"
 
 case "$choice" in

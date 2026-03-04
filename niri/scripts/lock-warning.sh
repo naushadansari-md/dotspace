@@ -1,8 +1,11 @@
 #!/bin/sh
 
+APP="idle-warning"
+
 notify-send \
-  --urgency=critical \
-  --icon=preferences-desktop-screensaver \
-  --expire-time=5000 \
-  "Screen will lock soon" \
-  "Move mouse or press a key to stay unlocked"
+  -a "$APP" \
+  -u critical \
+  -i preferences-desktop-screensaver \
+  -t 5000 \
+  "Screen locking soon" \
+  "Move the mouse or press a key to stay unlocked."

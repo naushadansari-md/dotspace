@@ -9,7 +9,8 @@ binds {
     // ────────────── Application Shortcuts ──────────────
     MOD+Return            { spawn "kitty"; }
     MOD+B                 { spawn "firefox"; }
-    MOD+D                 { spawn "code"; }
+    MOD+C                 { spawn "code"; }
+    MOD+G                 { spawn "geany"; }
     MOD+E                 { spawn "nemo"; }
     MOD+SHIFT+W           { spawn "~/.config/niri/scripts/set-wallpaper.sh"; }
     MOD+A                 { spawn "~/.config/walker/walker.sh"; }
@@ -137,7 +138,7 @@ binds {
     // ────────────── Layout Controls ──────────────
     MOD+R            { switch-preset-column-width; }
     MOD+SHIFT+R      { switch-preset-column-width-back; }
-    MOD+C            { center-column; }
+    MOD+M            { center-column; }
     MOD+CTRL+C       { center-visible-columns; }
 
     MOD+BRACKETLEFT  { consume-or-expel-window-left; }
@@ -153,7 +154,6 @@ binds {
     // ────────────── Window Modes ──────────────
     MOD+T          { toggle-window-floating; }
     MOD+F          { maximize-column; }
-    MOD+M          { maximize-column; }
     MOD+V          { toggle-window-floating; }
     MOD+SHIFT+V    { switch-focus-between-floating-and-tiling; }
     MOD+W          { toggle-column-tabbed-display; }
@@ -164,7 +164,7 @@ binds {
     CTRL+ALT+Delete   { quit; }
     MOD+SHIFT+P       { power-off-monitors; }
 
-    MOD+SHIFT+L hotkey-overlay-title="Lock the Screen: hyprlock" { spawn "hyprlock"; }
+    MOD+SHIFT+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
 
     MOD+S          { screenshot; }
     MOD+SHIFT+S    { screenshot-screen write-to-disk=true; }

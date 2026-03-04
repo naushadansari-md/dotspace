@@ -9,7 +9,7 @@ spawn-at-startup       "elephant"
 // ────────────── Notifications & UI ──────────────
 spawn-at-startup        "swaync"
 spawn-at-startup        "swww-daemon"
-spawn-at-startup        "~/.config/waybar/scripts/launch.sh"
+spawn-at-startup        "~/.config/waybar/scripts/waybar-launch.sh"
 
 
 // ────────────── Niri Custom Scripts ──────────────

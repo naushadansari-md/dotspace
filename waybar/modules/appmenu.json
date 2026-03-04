@@ -2,7 +2,7 @@
 {
   "custom/appmenu": {
     "tooltip-format": "Application launcher",
-    "on-click": "~/.config/waybar/scripts/applemenu.sh",
+    "on-click": "~/.config/waybar/scripts/appmenu.sh",
     "format": " "
   }
 }

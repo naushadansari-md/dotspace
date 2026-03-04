@@ -1,0 +1,87 @@
+/* =========================================
+   Waybar + Hyprland / Niri (rofi-wayland)
+   ========================================= */
+
+@import "/home/saad/.config/rofi/matugen-colors.rasi"
+
+
+* {
+    font: "JetBrainsMono Nerd Font 10";
+    text-color: rgba(255,255,255,0.92);
+    background-color: transparent;
+    panel-bg: rgba(18,18,18,0.55);
+    panel-border: rgba(255,255,255,0.10);
+}
+
+/* ---------- Window ---------- */
+
+window {
+    width: 260px;
+
+    location: northwest;
+    anchor: northwest;
+
+    x-offset: 25px;
+    y-offset: 12px;   /* Adjust if Waybar height differs */
+
+    background-color: @panel-bg;
+    border: 1px;
+    border-color: @primary;
+    border-radius: 10px;
+    padding: 8px;
+}
+
+/* ---------- Layout ---------- */
+
+mainbox {
+    spacing: 0px;
+}
+
+inputbar {
+    enabled: false;
+}
+
+listview {
+    columns: 1;
+    fixed-height: false;
+    scrollbar: false;
+    spacing: 2px;
+    padding: 0px;
+}
+
+/* ---------- Menu Rows ---------- */
+
+element {
+    border-radius: 8px;
+    padding: 5px 10px;
+    background-color: transparent;
+}
+
+element normal.active {
+    background-color: rgba(255,255,255,0.10);
+}
+
+element selected.normal {
+    background-color: rgba(255,255,255,0.16);
+}
+
+element selected.normal element-text {
+    text-color: rgba(255,255,255,0.98);
+}
+
+/* ---------- Icons ---------- */
+
+element-icon {
+    size: 16px;
+    margin: 0px 8px 0px 0px;
+}
+
+/* ---------- Separator ---------- */
+
+element normal.active {
+    background-color: rgba(255,255,255,0.08);
+}
+
+element selected.normal {
+    background-color: rgba(255,255,255,0.14);
+}
