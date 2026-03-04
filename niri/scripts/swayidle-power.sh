@@ -28,6 +28,8 @@ mode_now() {
   [ "$(get_ac_online)" = "1" ] && echo "AC" || echo "BAT"
 }
 
+lock_cmd='pgrep -x hyprlock >/dev/null 2>&1 || hyprlock --immediate-render --no-fade-in'
+
 start_swayidle() {
   mode="$1"
   if [ "$mode" = "AC" ]; then
@@ -36,7 +38,7 @@ start_swayidle() {
     WARN_T="$BAT_WARN"; LOCK_T="$BAT_LOCK"; OFF_T="$BAT_OFF"
   fi
 
-  # Ensure lock happens before power-off
+  # Ensure ordering: warn < lock < off
   if [ "$OFF_T" -le "$LOCK_T" ]; then
     OFF_T=$((LOCK_T + 1))
   fi
@@ -48,20 +50,22 @@ start_swayidle() {
 
   exec swayidle -w \
     timeout "$WARN_T" "$WARN" \
-    timeout "$LOCK_T" 'hyprlock -f' \
-    timeout "$OFF_T"  'niri msg action power-off-monitors' \
-    resume            'niri msg action power-on-monitors' \
-    before-sleep      'hyprlock -f'
+    timeout "$LOCK_T"  "$lock_cmd" \
+    timeout "$OFF_T"   'niri msg action power-off-monitors' \
+    resume             'niri msg action power-on-monitors' \
+    before-sleep       "$lock_cmd"
 }
 
 run() {
   last="$(mode_now)"
   pid=""
+  monpid=""
 
   fifo="/tmp/swayidle-power.$UID.fifo"
 
   cleanup() {
     [ -n "${pid:-}" ] && { kill "$pid" 2>/dev/null || true; wait "$pid" 2>/dev/null || true; }
+    [ -n "${monpid:-}" ] && { kill "$monpid" 2>/dev/null || true; wait "$monpid" 2>/dev/null || true; }
     rm -f "$fifo" 2>/dev/null || true
   }
   trap cleanup INT TERM EXIT
@@ -73,7 +77,7 @@ run() {
   ( start_swayidle "$last" ) &
   pid=$!
 
-  # Start udev monitor writing into FIFO (no pipeline subshell for our loop)
+  # Monitor power supply changes (writes events into FIFO)
   udevadm monitor --udev --subsystem-match=power_supply >"$fifo" &
   monpid=$!
 
@@ -95,9 +99,6 @@ run() {
       pid=$!
     fi
   done <"$fifo"
-
-  kill "$monpid" 2>/dev/null || true
-  wait "$monpid" 2>/dev/null || true
 }
 
 run

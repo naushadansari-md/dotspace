@@ -18,11 +18,6 @@ output_path = '~/.config/waybar/colors.css'
 input_path = '~/.config/matugen/templates/colors.css'
 output_path = '~/.config/nwg-dock-hyprland/colors.css'
 
-[templates.fuzzel]
-input_path = '~/.config/matugen/templates/fuzzel.ini'
-output_path = '~/.config/fuzzel/colors.ini'
-post_hook = 'pkill fuzzel || true'
-
 [templates.yazi]
 input_path = '~/.config/matugen/templates/yazi-theme.toml'
 output_path = '~/.config/yazi/theme.toml'
@@ -53,3 +48,7 @@ output_path = '~/.config/gtk-3.0/colors.css'
 [templates.gtk4]
 input_path = '~/.config/matugen/templates/gtk-colors.css'
 output_path = '~/.config/gtk-4.0/colors.css'
+
+[templates.walker]
+input_path = '~/.config/matugen/templates/colors.css'
+output_path = '~/.config/walker/colors.css'

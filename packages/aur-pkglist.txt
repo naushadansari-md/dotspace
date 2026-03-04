@@ -1,0 +1,10 @@
+elephant-archlinuxpkgs
+elephant-calc
+elephant-clipboard
+elephant-desktopapplications
+elephant-files
+elephant-providerlist
+elephant-runner
+elephant-symbols
+elephant-websearch
+walker-bin

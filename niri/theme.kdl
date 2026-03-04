@@ -37,6 +37,12 @@ layout {
         spread 5
         offset x=0 y=5
     }
+        struts {
+        //left 10
+        //right 10
+        //top 10
+        //bottom 10
+    }
 }
 
 // ────────────── Matugen Dynamic Colors ──────────────

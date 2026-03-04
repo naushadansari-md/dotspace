@@ -3,6 +3,7 @@
 // ────────────── Core Services ──────────────
 spawn-at-startup       "xwayland-satellite"
 spawn-at-startup       "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+spawn-at-startup       "elephant"
 
 
 // ────────────── Notifications & UI ──────────────
@@ -15,3 +16,4 @@ spawn-at-startup        "~/.config/waybar/scripts/launch.sh"
 spawn-at-startup        "~/.config/niri/scripts/welcome.sh"
 spawn-at-startup        "~/.config/niri/scripts/set-wallpaper.sh"
 spawn-at-startup        "~/.config/niri/scripts/battery-monitor.sh"
+

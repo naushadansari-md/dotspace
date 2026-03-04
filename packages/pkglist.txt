@@ -20,7 +20,6 @@ fastfetch
 fd
 firefox
 flatpak
-fuzzel
 fzf
 geany
 git
@@ -71,15 +70,16 @@ pulseaudio
 pulseaudio-alsa
 pulseaudio-bluetooth
 pulsemixer
+qalculate-gtk
 rate-mirrors
 ripgrep
+rofi
 sassc
 slurp
 socat
 sof-firmware
 sudo
 swayidle
-swaylock-effects
 swaync
 swww
 telegram-desktop

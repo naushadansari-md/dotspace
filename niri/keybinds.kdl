@@ -9,11 +9,10 @@ binds {
     // ────────────── Application Shortcuts ──────────────
     MOD+Return            { spawn "kitty"; }
     MOD+B                 { spawn "firefox"; }
-    MOD+G                 { spawn "geany"; }
+    MOD+D                 { spawn "code"; }
     MOD+E                 { spawn "nemo"; }
-    MOD+A                 { spawn "fuzzel"; }
     MOD+SHIFT+W           { spawn "~/.config/niri/scripts/set-wallpaper.sh"; }
-
+    MOD+A                 { spawn "~/.config/walker/walker.sh"; }
 
     // ────────────── Brightness ──────────────
     XF86MonBrightnessUp   { spawn "~/.config/niri/scripts/system-osd.sh" "brightness" "--inc"; }
