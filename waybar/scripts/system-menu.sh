@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-THEME="${HOME}/.config/rofi/appmenu.rasi"
+THEME="${HOME}/.config/rofi/system-menu.rasi"
 ABOUT_SCRIPT="${HOME}/.config/waybar/scripts/about-system.sh"
 
 entries() {

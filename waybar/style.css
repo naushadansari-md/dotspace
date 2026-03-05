@@ -3,7 +3,7 @@
 --------------------------------*/
 @import "/home/saad/.config/waybar/colors.css";
 @import "/home/saad/.config/waybar/style/clock.css";
-@import "/home/saad/.config/waybar/style/appmenu.css";
+@import "/home/saad/.config/waybar/style/systemmenu.css";
 @import "/home/saad/.config/waybar/style/pulseaudio.css";
 @import "/home/saad/.config/waybar/style/network.css";
 @import "/home/saad/.config/waybar/style/workspaces.css";
@@ -69,7 +69,7 @@ window#waybar {
 #network,
 #pulseaudio,
 #tray,
-#custom-appmenu,
+#custom-systemmenu,
 #custom-center,
 #custom-notification{
   min-height: 18px;

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-THEME="${HOME}/.config/rofi/aboutsystem.rasi"
+THEME="${HOME}/.config/rofi/about-system.rasi"
 ICON_TITLE="distributor-logo-archlinux"
 
 have() { command -v "$1" >/dev/null 2>&1; }
