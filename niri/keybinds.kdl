@@ -14,6 +14,7 @@ binds {
     MOD+E                 { spawn "nemo"; }
     MOD+SHIFT+W           { spawn "~/.config/niri/scripts/set-wallpaper.sh"; }
     MOD+A                 { spawn "~/.config/walker/walker.sh"; }
+    MOD+N                 { spawn "swaync-client -t"; }
 
     // ────────────── Brightness ──────────────
     XF86MonBrightnessUp   { spawn "~/.config/niri/scripts/system-osd.sh" "brightness" "--inc"; }
