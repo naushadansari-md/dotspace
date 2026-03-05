@@ -9,6 +9,9 @@ configuration {
   matching: "fuzzy";
   sort: true;
 
+  kb-cancel: "Escape,MousePrimary";
+  hover-select: true;
+
   /* Wayland */
   /* If you use rofi-wayland, this is fine; no X11-only options here. */
 }
