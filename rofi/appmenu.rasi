@@ -1,5 +1,5 @@
 /* =========================================
-   Waybar + Hyprland / Niri (rofi-wayland)
+   Waybar + Hyprland / Niri
    ========================================= */
 
 @import "/home/saad/.config/rofi/matugen-colors.rasi"
