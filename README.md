@@ -33,8 +33,6 @@ All packaged with **safe installers**, **automatic backups**, and **idempotent s
 
 <h3 align="center">Hyprland</h3>
 
-<h3 align="center">Hyprland</h3>
-
 <p align="center">
   <a href="assets/screenshots/hypr-1.png">
     <img src="assets/screenshots/hypr-1.png" width="30%">
