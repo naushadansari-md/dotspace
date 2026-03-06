@@ -2,7 +2,6 @@
 set -euo pipefail
 
 THEME="${HOME}/.config/rofi/about-system.rasi"
-ICON_TITLE="distributor-logo-archlinux"
 
 have() { command -v "$1" >/dev/null 2>&1; }
 
@@ -18,7 +17,7 @@ gpu_name() {
   if have lspci; then
     lspci | awk -F': ' '/VGA compatible controller|3D controller/ {print $2; exit}'
   else
-    echo "Unknown GPU (install pciutils)"
+    echo "Unknown GPU"
   fi
 }
 
@@ -32,6 +31,7 @@ uptime_pretty() {
 
 copy_to_clipboard() {
   local text="$1"
+
   if have wl-copy; then
     printf "%s" "$text" | wl-copy
     notify-send "About" "Copied to clipboard"
@@ -39,22 +39,31 @@ copy_to_clipboard() {
     printf "%s" "$text" | xclip -selection clipboard
     notify-send "About" "Copied to clipboard"
   else
-    notify-send "About" "Install wl-clipboard (wl-copy) for copy"
+    notify-send "About" "Install wl-clipboard or xclip"
   fi
 }
 
 open_settings() {
-  for cmd in gnome-control-center systemsettings nwg-look xfce4-settings-manager mate-control-center lxqt-config; do
+  local cmd
+
+  for cmd in \
+    gnome-control-center \
+    systemsettings \
+    nwg-look \
+    xfce4-settings-manager \
+    mate-control-center \
+    lxqt-config
+  do
     if have "$cmd"; then
       "$cmd" >/dev/null 2>&1 &
       return 0
     fi
   done
+
   notify-send "About" "No settings app found"
   return 1
 }
 
-# ---- values ----
 OS="Arch Linux"
 KERNEL="$(uname -r)"
 HOST="$(uname -n)"
@@ -63,39 +72,37 @@ MEM="$(mem_total_gib)"
 GPU="$(gpu_name)"
 UP="$(uptime_pretty)"
 
-CPU_SHORT="$(printf "%s" "$CPU" | sed 's/(R)//g; s/(TM)//g; s/  */ /g' | cut -c1-48)"
-GPU_SHORT="$(printf "%s" "$GPU" | sed 's/Intel Corporation //; s/  */ /g' | cut -c1-48)"
+CPU_SHORT="$(printf "%s" "$CPU" | sed 's/(R)//g; s/(TM)//g; s/  */ /g' | cut -c1-40)"
+GPU_SHORT="$(printf "%s" "$GPU" | sed 's/Intel Corporation //; s/ (rev .*//g; s/  */ /g; s/Alder Lake-UP3 GT1 \[UHD Graphics\]/UHD Graphics/g' | cut -c1-40)"
 
 PLAIN="$(printf "OS: %s\nKernel: %s\nHost: %s\nCPU: %s\nMemory: %s\nGPU: %s\nUptime: %s\n" \
   "$OS" "$KERNEL" "$HOST" "$CPU" "$MEM" "$GPU" "$UP")"
 
 menu() {
-  printf '%s\0nonselectable\x1ftrue\x1fmarkup\x1ftrue\x1ficon\x1f%s\x1fclass\x1ftitle\n' \
-    "<span weight='bold'>Arch Linux</span>" "$ICON_TITLE"
+  printf '<span weight="bold" size="large">󰣇  %s</span>\n' "$OS"
+  printf '<span alpha="70%%">About This System</span>\n'
 
-  printf '%s\0nonselectable\x1ftrue\x1fmarkup\x1ftrue\x1fclass\x1fsubtitle\n' \
-    "<span alpha='70%'>About This System</span>"
+  printf '%s\n' "──────────────"
 
-  printf '%s\0nonselectable\x1ftrue\x1fclass\x1fdivider\n' "────────────────────"
+  printf '󰌢  <span alpha="70%%">Model</span>    %s\n' "$HOST"
+  printf '󰒋  <span alpha="70%%">Kernel</span>   %s\n' "$KERNEL"
+  printf '󰍛  <span alpha="70%%">CPU</span>      %s\n' "$CPU_SHORT"
+  printf '󰘚  <span alpha="70%%">Memory</span>   %s\n' "$MEM"
+  printf '󰢮  <span alpha="70%%">GPU</span>      %s\n' "$GPU_SHORT"
+  printf '󰥔  <span alpha="70%%">Uptime</span>   %s\n' "$UP"
 
-  printf '%s\0nonselectable\x1ftrue\x1fmarkup\x1ftrue\x1fclass\x1finfo\n' "<span alpha='70%'>Kernel</span>   ${KERNEL}"
-  printf '%s\0nonselectable\x1ftrue\x1fmarkup\x1ftrue\x1fclass\x1finfo\n' "<span alpha='70%'>Host</span>     ${HOST}"
-  printf '%s\0nonselectable\x1ftrue\x1fmarkup\x1ftrue\x1fclass\x1finfo\n' "<span alpha='70%'>CPU</span>      ${CPU_SHORT}"
-  printf '%s\0nonselectable\x1ftrue\x1fmarkup\x1ftrue\x1fclass\x1finfo\n' "<span alpha='70%'>Memory</span>   ${MEM}"
-  printf '%s\0nonselectable\x1ftrue\x1fmarkup\x1ftrue\x1fclass\x1finfo\n' "<span alpha='70%'>GPU</span>      ${GPU_SHORT}"
-  printf '%s\0nonselectable\x1ftrue\x1fmarkup\x1ftrue\x1fclass\x1finfo\n' "<span alpha='70%'>Uptime</span>   ${UP}"
+  printf '%s\n' "──────────────"
 
-  printf '%s\0nonselectable\x1ftrue\x1fclass\x1fdivider\n' "────────────────────"
-
-  # Changed only these three icons
-  printf '%s\0markup\x1ftrue\x1ficon\x1fedit-copy-symbolic\x1fclass\x1faction\n' "<span weight='bold'>Copy</span>"
-  printf '%s\0markup\x1ftrue\x1ficon\x1fpreferences-system-symbolic\x1fclass\x1faction\n' "<span weight='bold'>Settings</span>"
-  printf '%s\0markup\x1ftrue\x1ficon\x1fwindow-close-symbolic\x1fclass\x1faction\n' "<span weight='bold'>Close</span>"
+  printf '󰆏  Copy\n'
+  printf '󰒓  Settings\n'
+  printf '󰅖  Close\n'
 }
 
-choice="$(menu | rofi -dmenu -i -p "" -show-icons -markup-rows -no-custom \
-  -icon-theme "" \
-  -theme "$THEME" || true)"
+choice="$(
+  menu | rofi -dmenu -i -markup-rows -p "" \
+    -no-custom \
+    -theme "$THEME" || true
+)"
 
 case "$choice" in
   *Copy*)     copy_to_clipboard "$PLAIN" ;;

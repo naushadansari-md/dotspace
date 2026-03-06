@@ -23,7 +23,7 @@ window {
     width: 360px;
     location: northeast;
     anchor: northeast;
-    x-offset: -75px;
+    x-offset: -50px;
     y-offset: 12px;
     background-color: @panel-bg;
     border: 1px;

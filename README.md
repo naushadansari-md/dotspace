@@ -123,7 +123,7 @@ Example
 ./install-packages.sh --dry-run
 ./install-packages.sh --aur-helper paru
 ```
-stall dotfiles only
+Istall dotfiles only
 
 Creates symlinks and backs up existing configurations.
 ```bash
@@ -207,7 +207,7 @@ sudo pacman -Syu --needed - < packages/pkglist.txt
 ```
 Install AUR packages:
 ```bash
-yay -S --needed - < packages/aur-pkglist.txt
+paru -S --needed - < packages/aur-pkglist.txt
 ```
 
 ## Backup & Restore

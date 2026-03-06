@@ -66,7 +66,6 @@ fi
 
 # ---------- Config folders (match your repo) ----------
 LINK_DIRS=(
-  "fuzzel"
   "gtk-3.0"
   "gtk-4.0"
   "hypr"
@@ -77,14 +76,17 @@ LINK_DIRS=(
   "nwg-dock-hyprland"
   "nwg-drawer"
   "nwg-look"
+  "rofi"
   "swaylock"
   "swaync"
   "systemd"
+  "walker"
   "waybar"
   "xsettingsd"
   "yazi"
   "zathura"
   "zsh"
+  
 )
 
 # ---------- Home dotfiles to link (repo root -> $HOME) ----------

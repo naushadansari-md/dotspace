@@ -1,13 +1,18 @@
 {
   "network": {
     "interval": 2,
-    "tooltip": false,
-    "format-wifi": "  {signalStrength}%",
-    "format-ethernet": "󰈀  {ifname}",
-    "format-linked": "󰈀  {ifname} (No IP)",
-    "format-disconnected": "󰖪  Offline",
-    "tooltip-format-disconnected": "Disconnected",
-    "format-alt": "<span foreground='#99ffdd'> {bandwidthDownBytes}</span> <span foreground='#ffcc66'> {bandwidthUpBytes}</span>",
-    "on-click-right": "/home/saad/.config/waybar/scripts/network-menu.sh"
+    "tooltip": true,
+
+    "format-wifi": " ",
+    "tooltip-format-wifi": "WiFi {signalStrength}%",
+
+    "format-ethernet": "󰈀",
+    "tooltip-format-ethernet": "Ethernet {ifname}",
+
+    "format-linked": "󰈀 ",
+    "format-disconnected": "󰖪 ",
+    "format-alt": "  {signalStrength}%",
+    "on-click": "waybar-msg module network toggle-format",
+    "on-click-right": "/home/saad/.config/waybar/scripts/network-menu.sh"  
   }
 }

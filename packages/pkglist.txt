@@ -4,7 +4,6 @@ alsa-utils
 astyle
 base
 base-devel
-blueman
 bluez
 bluez-utils
 brightnessctl
@@ -80,6 +79,7 @@ socat
 sof-firmware
 sudo
 swayidle
+swaylock-effects
 swaync
 swww
 telegram-desktop
