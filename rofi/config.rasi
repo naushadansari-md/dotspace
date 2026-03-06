@@ -1,17 +1,14 @@
 configuration {
-  modi: "drun,run,window";
-  show-icons: true;
-  icon-theme: "Adwaita";
-  drun-display-format: "{name}";
-  display-drun: "Apps";
-  display-run: "Run";
-  display-window: "Windows";
-  matching: "fuzzy";
-  sort: true;
+    modi: "drun,run,window";
+    show-icons: true;
+    icon-theme: "Adwaita";
+    drun-display-format: "{name}";
+    display-drun: "Apps";
+    display-run: "Run";
+    display-window: "Windows";
+    matching: "fuzzy";
+    sort: true;
 
-  kb-cancel: "Escape,MousePrimary";
-  hover-select: true;
-
-  /* Wayland */
-  /* If you use rofi-wayland, this is fine; no X11-only options here. */
+    kb-cancel: "Escape,MousePrimary";
+    hover-select: true;
 }

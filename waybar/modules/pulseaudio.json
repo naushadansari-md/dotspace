@@ -20,6 +20,6 @@
     "tooltip": true,
     "tooltip-format": "Volume: {volume}%\nDevice: {desc}",
     "on-click": "pypr toggle volume",
-    "on-click-right": "pamixer -t"
+    "on-click-right": "/home/saad/.config/waybar/scripts/bluetooth-menu.sh"
   }
 }
