@@ -1,0 +1,108 @@
+/* =========================================
+   Waybar + Hyprland / Niri
+   ========================================= */
+
+@import "/home/saad/.config/rofi/matugen-colors.rasi"
+
+* {
+    font: "JetBrainsMono Nerd Font 10";
+    text-color: rgba(255,255,255,0.92);
+    background-color: transparent;
+    panel-bg: rgba(18,18,18,0.55);
+    panel-border: rgba(255,255,255,0.10);
+}
+
+/* ---------- configuration ---------- */
+
+configuration {
+    display-drun: "";
+}
+
+/* ---------- Window ---------- */
+
+window {
+    width: 280px;
+
+    location: northwest;
+    anchor: northwest;
+
+    x-offset: 22px;
+    y-offset: 12px;
+
+    background-color: @panel-bg;
+    border: 1px;
+    border-color: @primary;
+    border-radius: 10px;
+    padding: 8px;
+}
+
+/* ---------- Layout ---------- */
+
+mainbox {
+    spacing: 4px;
+}
+
+inputbar {
+    enabled: true;
+    children: [ entry ];
+    margin: 0px 0px 6px 0px;
+}
+
+/* ---------- Search Box ---------- */
+
+entry {
+    expand: true;
+
+    background-color: rgba(255,255,255,0.08);
+    text-color: rgba(255,255,255,0.95);
+
+    placeholder: "Search apps...";
+    placeholder-color: rgba(255,255,255,0.45);
+
+    border: 1px;
+    border-color: @primary;
+    border-radius: 6px;
+
+    padding: 5px 10px;
+
+    cursor-color: @primary;
+}
+
+/* ---------- App List ---------- */
+
+listview {
+    columns: 1;
+    lines: 12;
+    fixed-height: true;
+
+    scrollbar: false;
+    spacing: 2px;
+    padding: 0px;
+}
+
+/* ---------- Menu Rows ---------- */
+
+element {
+    border-radius: 6px;
+    padding: 5px 10px;
+    background-color: transparent;
+}
+
+element normal.active {
+    background-color: rgba(255,255,255,0.08);
+}
+
+element selected.normal {
+    background-color: rgba(255,255,255,0.16);
+}
+
+element selected.normal element-text {
+    text-color: rgba(255,255,255,0.98);
+}
+
+/* ---------- Icons ---------- */
+
+element-icon {
+    size: 16px;
+    margin: 0px 8px 0px 0px;
+}

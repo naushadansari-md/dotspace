@@ -20,7 +20,7 @@
 }
 
 window {
-    width: 360px;
+    width: 280px;
     location: northeast;
     anchor: northeast;
     x-offset: -50px;

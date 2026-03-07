@@ -79,7 +79,7 @@ logout_user() {
 }
 
 show_applications() {
-  rofi -show drun -theme "$THEME"
+  rofi -show drun -theme "$HOME/.config/rofi/applications.rasi" -p "Search Apps"
 }
 
 get_recent_paths() {

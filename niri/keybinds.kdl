@@ -11,7 +11,7 @@ binds {
     MOD+SHIFT+W           { spawn "~/.config/niri/scripts/set-wallpaper.sh"; }
     MOD+A                 { spawn "~/.config/walker/walker.sh"; }
     MOD+N                 { spawn "swaync-client -t"; }
-    MOD+SHIFT+ESCAPE      { spawn "~/.config/waybar/scripts/system-menu.sh"; }
+    MOD+SPACE      { spawn "~/.config/waybar/scripts/system-menu.sh"; }
 
     // ────────────── Brightness ──────────────
     XF86MonBrightnessUp   { spawn "~/.config/niri/scripts/system-osd.sh" "brightness" "--inc"; }

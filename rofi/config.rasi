@@ -8,7 +8,12 @@ configuration {
     display-window: "Windows";
     matching: "fuzzy";
     sort: true;
+    case-sensitive: false;
+    cycle: true;
 
-    kb-cancel: "Escape,MousePrimary";
+    kb-cancel: "Escape";
     hover-select: true;
+
+    me-select-entry: "";
+    me-accept-entry: "MousePrimary";
 }

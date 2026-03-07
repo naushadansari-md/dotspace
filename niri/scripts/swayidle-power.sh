@@ -2,18 +2,24 @@
 set -eu
 
 WARN="$HOME/.config/niri/lock-warning.sh"
+SELF="$HOME/.config/niri/scripts/swayidle-power.sh"
 
-# ----- Customize your timeouts here (seconds) -----
-# On AC:
+# -------- Timeouts --------
+
+# On AC
 AC_WARN=595
 AC_LOCK=600
 AC_OFF=900
 
-# On battery:
+# On battery
 BAT_WARN=295
 BAT_LOCK=300
 BAT_OFF=420
-# -----------------------------------------------
+
+# --------------------------
+
+pid=""
+last=""
 
 get_ac_online() {
   for d in /sys/class/power_supply/*; do
@@ -26,8 +32,6 @@ get_ac_online() {
   echo 0
 }
 
-# Extract output names like eDP-1, HDMI-A-1 from lines:
-# Output "..." (eDP-1)
 get_outputs() {
   niri msg outputs 2>/dev/null | sed -n 's/^Output .* (\([^)]\+\)).*$/\1/p'
 }
@@ -46,44 +50,58 @@ outputs_on() {
   done
 }
 
-start_swayidle() {
-  mode="$1" # AC or BAT
-  if [ "$mode" = "AC" ]; then
-    WARN_T="$AC_WARN"; LOCK_T="$AC_LOCK"; OFF_T="$AC_OFF"
-  else
-    WARN_T="$BAT_WARN"; LOCK_T="$BAT_LOCK"; OFF_T="$BAT_OFF"
-  fi
+stop_pid_wait() {
+  p="${1:-}"
+  [ -n "$p" ] || return 0
+  kill -TERM "$p" 2>/dev/null || true
+  wait "$p" 2>/dev/null || true
+}
 
-  echo "Starting swayidle mode=$mode warn=$WARN_T lock=$LOCK_T off=$OFF_T" >&2
+stop_pid_nowait() {
+  p="${1:-}"
+  [ -n "$p" ] || return 0
+  kill -TERM "$p" 2>/dev/null || true
+}
+
+cleanup() {
+  trap - INT TERM
+  stop_pid_nowait "$pid"
+  exit 0
+}
+
+start_swayidle() {
+  mode="$1"
+
+  if [ "$mode" = "AC" ]; then
+    WARN_T="$AC_WARN"
+    LOCK_T="$AC_LOCK"
+    OFF_T="$AC_OFF"
+  else
+    WARN_T="$BAT_WARN"
+    LOCK_T="$BAT_LOCK"
+    OFF_T="$BAT_OFF"
+  fi
 
   swayidle -w \
     timeout "$WARN_T" "$WARN" \
     timeout "$LOCK_T" 'swaylock -f' \
-    timeout "$OFF_T"  'sh -c "$HOME/.config/niri/scripts/swayidle-power.sh --outputs-off"' \
-    resume            'sh -c "$HOME/.config/niri/scripts/swayidle-power.sh --outputs-on"' \
-    before-sleep      'swaylock -f' &
+    timeout "$OFF_T" "$SELF --outputs-off" \
+    resume "$SELF --outputs-on" \
+    before-sleep 'swaylock -f' &
+
   echo $!
 }
 
-stop_pid() {
-  pid="${1:-}"
-  [ -n "$pid" ] || return 0
-  kill "$pid" 2>/dev/null || true
-  wait "$pid" 2>/dev/null || true
-}
-
 run_loop() {
-  last=""
-  pid=""
-
-  trap 'stop_pid "$pid"' INT TERM EXIT
+  trap cleanup INT TERM
 
   while :; do
     online="$(get_ac_online)"
-    mode="BAT"; [ "$online" = "1" ] && mode="AC"
+    mode="BAT"
+    [ "$online" = "1" ] && mode="AC"
 
     if [ "$mode" != "$last" ]; then
-      stop_pid "$pid"
+      stop_pid_wait "$pid"
       pid="$(start_swayidle "$mode")"
       last="$mode"
     fi
@@ -94,7 +112,7 @@ run_loop() {
 
 case "${1:-}" in
   --outputs-off) outputs_off; exit 0 ;;
-  --outputs-on)  outputs_on;  exit 0 ;;
+  --outputs-on) outputs_on; exit 0 ;;
 esac
 
 run_loop
