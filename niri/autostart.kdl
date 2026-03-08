@@ -1,19 +1,38 @@
 // ────────────── Startup Applications ──────────────
 
 // ────────────── Core Services ──────────────
-spawn-at-startup       "xwayland-satellite"
-spawn-at-startup       "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
-spawn-at-startup       "elephant"
+spawn-at-startup "xwayland-satellite"
+spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+spawn-at-startup "elephant"
 
 
 // ────────────── Notifications & UI ──────────────
-spawn-at-startup        "swaync"
-spawn-at-startup        "swww-daemon"
-spawn-at-startup        "~/.config/waybar/scripts/waybar-launch.sh"
+spawn-at-startup "swaync"
+spawn-at-startup "swww-daemon"
+spawn-at-startup "~/.config/waybar/scripts/waybar-launch.sh"
 
 
 // ────────────── Niri Custom Scripts ──────────────
-spawn-at-startup        "~/.config/niri/scripts/welcome.sh"
-spawn-at-startup        "~/.config/niri/scripts/set-wallpaper.sh"
-spawn-at-startup        "~/.config/niri/scripts/battery-monitor.sh"
+spawn-at-startup "~/.config/niri/scripts/welcome.sh"
+spawn-at-startup "~/.config/niri/scripts/set-wallpaper.sh"
+spawn-at-startup "~/.config/niri/scripts/battery-monitor.sh"
 
+
+// ────────────── GTK Theme ──────────────
+spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "gtk-theme" "Gruvbox-Dark"
+spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "icon-theme" "Gruvbox-Plus-Dark"
+spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "color-scheme" "prefer-dark"
+
+
+// ────────────── Cursor ──────────────
+spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "cursor-theme" "Bibata-Modern-Ice"
+spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "cursor-size" "24"
+
+
+// ────────────── Fonts ──────────────
+spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "font-name" "Fira Sans 10.5"
+spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "document-font-name" "Fira Sans 10.5"
+spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "monospace-font-name" "JetBrainsMono Nerd Font 10.5"
+spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "font-antialiasing" "rgba"
+spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "font-hinting" "full"
+spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "text-scaling-factor" "1"

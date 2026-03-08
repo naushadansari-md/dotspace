@@ -1,9 +1,3 @@
-// ────────────── GTK / System Theme ──────────────
-spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "gtk-theme" "Gruvbox-Dark"
-spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "icon-theme" "Gruvbox-Plus-Dark"
-spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "text-scaling-factor" "1"
-spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "color-scheme" "prefer-dark"
-
 // ────────────── Layout Behavior ──────────────
 layout {
     gaps 10

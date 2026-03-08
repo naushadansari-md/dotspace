@@ -1,25 +1,73 @@
 [Default Applications]
-text/html=google-chrome.desktop
-x-scheme-handler/http=google-chrome.desktop
-x-scheme-handler/https=google-chrome.desktop
-x-scheme-handler/about=google-chrome.desktop
-x-scheme-handler/unknown=google-chrome.desktop
-image/png=imv-dir.desktop
-application/x-shellscript=geany.desktop
+
+# Web browser
+text/html=firefox.desktop
+x-scheme-handler/http=firefox.desktop
+x-scheme-handler/https=firefox.desktop
+x-scheme-handler/about=firefox.desktop
+x-scheme-handler/unknown=firefox.desktop
+
+# File manager
+inode/directory=com.system76.CosmicFiles.desktop
+application/x-trash=com.system76.CosmicFiles.desktop
+
+# Images
+image/png=imv.desktop
+image/jpeg=imv.desktop
+image/jpg=imv.desktop
+image/gif=imv.desktop
+image/webp=imv.desktop
+image/bmp=imv.desktop
+
+# PDF
+application/pdf=org.pwmt.zathura.desktop
+
+# Video
+video/mp4=mpv.desktop
+video/x-matroska=mpv.desktop
+video/webm=mpv.desktop
+video/x-msvideo=mpv.desktop
+video/quicktime=mpv.desktop
+
+# Audio
+audio/mpeg=mpv.desktop
+audio/flac=mpv.desktop
+audio/wav=mpv.desktop
+audio/ogg=mpv.desktop
+audio/mp4=mpv.desktop
+
+# Email
 x-scheme-handler/mailto=userapp-Thunderbird-DN8WK3.desktop
 message/rfc822=userapp-Thunderbird-DN8WK3.desktop
 x-scheme-handler/mid=userapp-Thunderbird-DN8WK3.desktop
-application/pdf=org.pwmt.zathura-pdf-mupdf.desktop
-x-scheme-handler/jetbrains=jetbrains-toolbox.desktop
-inode/directory=nemo.desktop
-application/x-trash=geany.desktop
+
+# Text / Code
+text/plain=geany.desktop
 text/x-csrc=geany.desktop
+application/x-shellscript=geany.desktop
+
+# JetBrains links
+x-scheme-handler/jetbrains=jetbrains-toolbox.desktop
+
 
 [Added Associations]
-image/png=imv.desktop;imv-dir.desktop;
-application/x-shellscript=geany.desktop;
-x-scheme-handler/mailto=userapp-Thunderbird-DN8WK3.desktop;
-x-scheme-handler/mid=userapp-Thunderbird-DN8WK3.desktop;
-application/pdf=org.pwmt.zathura-pdf-mupdf.desktop;
-application/x-trash=geany.desktop;
-text/x-csrc=geany.desktop;
+
+image/png=imv.desktop
+image/jpeg=imv.desktop
+image/jpg=imv.desktop
+image/webp=imv.desktop
+image/gif=imv.desktop
+
+application/pdf=org.pwmt.zathura.desktop
+
+video/mp4=mpv.desktop
+video/x-matroska=mpv.desktop
+video/webm=mpv.desktop
+
+audio/mpeg=mpv.desktop
+audio/flac=mpv.desktop
+audio/ogg=mpv.desktop
+
+text/plain=geany.desktop
+text/x-csrc=geany.desktop
+application/x-shellscript=geany.desktop

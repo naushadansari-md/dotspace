@@ -18,7 +18,7 @@ window-rule {
 
 // ────────────── Main Apps: Open floating ──────────────
 window-rule{
-            match app-id=r#"^(onedrive_tray|qt5ct|qt6ct|kvantummanager)$"#
+            match app-id=r#"^(onedrive_tray|qt5ct|qt6ct|kvantummanager|nwg-look)$"#
             open-floating true
             max-width 640
             max-height 520
