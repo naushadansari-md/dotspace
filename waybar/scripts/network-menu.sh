@@ -131,7 +131,7 @@ build_menu() {
     echo "ACTION|󰖪  Disconnect"
     echo "ACTION|󰛅  Forget Current"
     echo "ACTION|󰛳  Hidden Network"
-    echo "SEP|---"
+    echo 'SEP|<span foreground="#666666">---</span>'
 
     [ "$wifi_state" = "enabled" ] || return
 

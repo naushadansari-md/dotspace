@@ -36,7 +36,7 @@ build_menu() {
     echo "󰌾  Pairable On"
     echo "󰌿  Pairable Off"
     echo "󰕾  Disconnect"
-    echo "---"
+    echo '<span foreground="#666666">---</span>'
 
     {
         $BLUETOOTHCTL devices Paired

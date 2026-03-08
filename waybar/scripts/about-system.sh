@@ -81,18 +81,14 @@ PLAIN="$(printf "OS: %s\nKernel: %s\nHost: %s\nCPU: %s\nMemory: %s\nGPU: %s\nUpt
 menu() {
   printf '<span weight="bold" size="large">󰣇  %s</span>\n' "$OS"
   printf '<span alpha="70%%">About This System</span>\n'
-
-  printf '%s\n' "──────────────"
-
+  printf '%s\n' "<span foreground='#666666'>---</span>"
   printf '󰌢  <span alpha="70%%">Model</span>    %s\n' "$HOST"
   printf '󰒋  <span alpha="70%%">Kernel</span>   %s\n' "$KERNEL"
   printf '󰍛  <span alpha="70%%">CPU</span>      %s\n' "$CPU_SHORT"
   printf '󰘚  <span alpha="70%%">Memory</span>   %s\n' "$MEM"
   printf '󰢮  <span alpha="70%%">GPU</span>      %s\n' "$GPU_SHORT"
   printf '󰥔  <span alpha="70%%">Uptime</span>   %s\n' "$UP"
-
-  printf '%s\n' "──────────────"
-
+  printf '%s\n' "<span foreground='#666666'>---</span>"
   printf '󰆏  Copy\n'
   printf '󰒓  Settings\n'
   printf '󰅖  Close\n'

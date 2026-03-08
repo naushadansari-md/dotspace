@@ -22,16 +22,16 @@ confirm_action() {
 
 entries() {
   printf '%s\n' "󰌢  About This System"
-  printf '%s\n' "---"
+  printf '%s\n' "<span foreground='#666666'>---</span>"
   printf '%s\n' "󰒓  System Settings"
   printf '%s\n' "󰀻  Applications ›"
-  printf '%s\n' "---"
+  printf '%s\n' "<span foreground='#666666'>---</span>"
   printf '%s\n' "󰉋  Recent Items ›"
-  printf '%s\n' "---"
+  printf '%s\n' "<span foreground='#666666'>---</span>"
   printf '%s\n' "󰒲  Sleep"
   printf '%s\n' "󰑓  Restart"
   printf '%s\n' "󰐥  Shut Down"
-  printf '%s\n' "---"
+  printf '%s\n' "<span foreground='#666666'>---</span>"
   printf '%s\n' "󰌾  Lock Screen"
   printf '%s\n' "󰍃  Log Out"
 }
@@ -177,17 +177,17 @@ show_recent_menu() {
 
   choice="$(
     {
-      printf '%s\n' "󰈙  Recent Files ▶"
-      printf '%s\n' "󰉋  Recent Folders ▶"
+      printf '%s\n' "󰈙  Recent Files ›"
+      printf '%s\n' "󰉋  Recent Folders ›"
       printf '%s\n' "󰆴  Clear Recent Items"
     } | rofi -dmenu -i -p "Recent Items" -theme "$THEME"
   )" || return 0
 
   case "$choice" in
-    "󰈙  Recent Files ▶")
+    "󰈙  Recent Files ›")
       show_recent_files
       ;;
-    "󰉋  Recent Folders ▶")
+    "󰉋  Recent Folders ›")
       show_recent_folders
       ;;
     "󰆴  Clear Recent Items")
@@ -212,10 +212,10 @@ main() {
     "󰒓  System Settings")
       open_settings
       ;;
-    "󰀻  Applications ▶")
+    "󰀻  Applications ›")
       show_applications
       ;;
-    "󰉋  Recent Items ▶")
+    "󰉋  Recent Items ›")
       show_recent_menu
       ;;
     "󰒲  Sleep")
