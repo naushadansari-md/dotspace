@@ -52,7 +52,7 @@ open_settings() {
     fi
   done
 
-  notify-send "Apple Menu" "No settings application found"
+  notify-send "No settings application found"
   return 1
 }
 
@@ -107,7 +107,7 @@ show_recent_files() {
   done < <(get_recent_paths)
 
   if [[ ${#rows[@]} -eq 0 ]]; then
-    notify-send "Apple Menu" "No recent files"
+    notify-send "No recent files"
     return 1
   fi
 
@@ -145,7 +145,7 @@ show_recent_folders() {
   done < <(get_recent_paths)
 
   if [[ ${#rows[@]} -eq 0 ]]; then
-    notify-send "Apple Menu" "No recent folders"
+    notify-send "No recent folders"
     return 1
   fi
 
@@ -169,7 +169,7 @@ show_recent_folders() {
 
 clear_recent_items() {
   rm -f "$HOME/.local/share/recently-used.xbel"
-  notify-send "Apple Menu" "Recent items cleared"
+  notify-send "Recent items cleared"
 }
 
 show_recent_menu() {

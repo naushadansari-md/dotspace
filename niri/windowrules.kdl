@@ -16,6 +16,16 @@ window-rule {
 }
 
 
+// ────────────── Main Apps: Open floating ──────────────
+window-rule{
+            match app-id=r#"^(onedrive_tray|qt5ct|qt6ct|kvantummanager)$"#
+            open-floating true
+            max-width 640
+            max-height 520
+          
+
+}
+
 // ────────────── File Chooser / Picker Dialogs (SAFE) ──────────────
 // Reduced keywords to avoid matching normal browser tabs
 window-rule {

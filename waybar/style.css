@@ -61,11 +61,6 @@ window#waybar {
    (Workspaces + Power excluded)
 --------------------------------*/
 #clock,
-#cpu,
-#memory,
-#temperature,
-#network,
-#backlight,
 #network,
 #pulseaudio,
 #tray,
@@ -93,15 +88,12 @@ window#waybar {
    HOVER (Premium Glass Effect)
 --------------------------------*/
 #clock:hover,
-#window:hover,
-#cpu:hover,
-#memory:hover,
-#temperature:hover,
+#custom-center:hover,
 #network:hover,
-#backlight:hover,
+#tray:hover,
 #battery:hover,
 #pulseaudio:hover,
-#custom-launcher:hover,
+#custom-systemmenu:hover,
 #custom-battery:hover,
 #custom-notification:hover {
   background: radial-gradient(circle at 50% 250%,

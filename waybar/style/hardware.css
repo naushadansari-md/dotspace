@@ -1,9 +1,0 @@
-#cpu,
-#memory,
-#temperature {
-  color: @on_surface;
-}
-
-#temperature.critical {
-  color: @error;
-}

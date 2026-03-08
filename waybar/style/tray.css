@@ -2,15 +2,15 @@
    TRAY INTERNAL
 --------------------------------*/
 
-#tray > .item {
+#tray > * {
   padding: 0 6px;
-  margin: 0 3px;
+  margin: 0 8px;
   border-radius: 8px;
   transition: 150ms ease;
 }
 
 /* Hover - softer + premium */
-#tray > .item:hover {
+#tray > *:hover {
   background: alpha(@surface_container_high, 0.75);
   box-shadow:
     0 0 8px alpha(@primary, 0.22),
