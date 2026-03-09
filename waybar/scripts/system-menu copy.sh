@@ -12,12 +12,12 @@ menu() {
 }
 
 confirm_action() {
-  printf "Cancel\nOK\n" |
-    rofi -dmenu -i -p "Confirm" \
-      -theme "$CONFIRM_THEME" \
-      -no-custom \
-      -selected-row 1 |
-    grep -qx "OK"
+  printf "Cancel\nOK\n" \
+    | rofi -dmenu -i -p "Confirm" \
+        -theme "$CONFIRM_THEME" \
+        -no-custom \
+        -selected-row 1 \
+    | grep -qx "OK"
 }
 
 entries() {
@@ -38,7 +38,6 @@ entries() {
 
 open_settings() {
   local cmd
-
   for cmd in \
     gnome-control-center \
     systemsettings \
@@ -69,14 +68,23 @@ lock_screen() {
   fi
 }
 
+# FIXED LOGOUT FUNCTION
 logout_user() {
-  if pgrep -x Hyprland >/dev/null 2>&1 || pgrep -x start-hyprland >/dev/null 2>&1; then
-    hyprctl dispatch exit
-  elif pgrep -x niri >/dev/null 2>&1; then
-    niri msg action quit --skip-confirmation
-  else
-    loginctl terminate-user "$USER"
-  fi
+  case "${XDG_CURRENT_DESKTOP:-}${DESKTOP_SESSION:-}" in
+    *Hyprland*|*hyprland*)
+      hyprctl dispatch exit
+      ;;
+    *niri*|*Niri*)
+      if systemctl --user --quiet is-active niri.service 2>/dev/null; then
+        systemctl --user stop niri.service
+      else
+        niri msg action quit --skip-confirmation
+      fi
+      ;;
+    *)
+      loginctl terminate-user "$USER"
+      ;;
+  esac
 }
 
 show_applications() {
@@ -85,15 +93,14 @@ show_applications() {
 
 get_recent_paths() {
   local recent="$HOME/.local/share/recently-used.xbel"
-
   [[ -f "$recent" ]] || return 0
 
-  grep -oP 'href="\K[^"]+' "$recent" |
-    sed 's#^file://##' |
-    python3 -c 'import sys, urllib.parse
+  grep -oP 'href="\K[^"]+' "$recent" \
+    | sed 's#^file://##' \
+    | python3 -c 'import sys, urllib.parse
 for line in sys.stdin:
-    print(urllib.parse.unquote(line.strip()))' |
-    awk '!seen[$0]++'
+    print(urllib.parse.unquote(line.strip()))' \
+    | awk '!seen[$0]++'
 }
 
 show_recent_files() {
@@ -114,9 +121,9 @@ show_recent_files() {
   fi
 
   choice="$(
-    printf '%s\n' "${rows[@]}" |
-      cut -d'|' -f1 |
-      rofi -dmenu -i -p "Recent Files" -theme "$THEME"
+    printf '%s\n' "${rows[@]}" \
+      | cut -d'|' -f1 \
+      | rofi -dmenu -i -p "Recent Files" -theme "$THEME"
   )" || return 0
 
   [[ -n "${choice:-}" ]] || return 0
@@ -124,7 +131,6 @@ show_recent_files() {
   for row in "${rows[@]}"; do
     display="${row%%|*}"
     real_path="${row#*|}"
-
     if [[ "$choice" == "$display" ]]; then
       xdg-open "$real_path" >/dev/null 2>&1 &
       return 0
@@ -139,12 +145,11 @@ show_recent_folders() {
 
   while IFS= read -r path; do
     [[ -f "$path" ]] || continue
-
     folder="$(dirname "$path")"
     [[ -d "$folder" ]] || continue
     [[ -n "${seen[$folder]+x}" ]] && continue
-
     seen["$folder"]=1
+
     rows+=("$(basename "$folder")/ — $(basename "$(dirname "$folder")")|$folder")
   done < <(get_recent_paths)
 
@@ -154,9 +159,9 @@ show_recent_folders() {
   fi
 
   choice="$(
-    printf '%s\n' "${rows[@]}" |
-      cut -d'|' -f1 |
-      rofi -dmenu -i -p "Recent Folders" -theme "$THEME"
+    printf '%s\n' "${rows[@]}" \
+      | cut -d'|' -f1 \
+      | rofi -dmenu -i -p "Recent Folders" -theme "$THEME"
   )" || return 0
 
   [[ -n "${choice:-}" ]] || return 0
@@ -164,7 +169,6 @@ show_recent_folders() {
   for row in "${rows[@]}"; do
     display="${row%%|*}"
     real_folder="${row#*|}"
-
     if [[ "$choice" == "$display" ]]; then
       xdg-open "$real_folder" >/dev/null 2>&1 &
       return 0
@@ -204,7 +208,10 @@ show_recent_menu() {
 main() {
   local choice
 
-  choice="$(entries | menu)" || exit 0
+  choice="$(
+    entries | menu
+  )" || exit 0
+
   [[ -n "${choice:-}" ]] || exit 0
 
   case "$choice" in

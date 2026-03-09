@@ -11,7 +11,7 @@ window-rule {
 
 // ────────────── Main Apps: Open Maximized ──────────────
 window-rule {
-    match app-id=r#"^(firefox|org\.mozilla\.firefox|google-chrome|chromium|brave-browser|org\.mozilla\.Thunderbird|org\.pwmt\.zathura|Papers)$"#
+    match app-id=r#"^(firefox|org\.mozilla\.firefox|google-chrome|chromium|brave-browser|org\.mozilla\.Thunderbird|org\.pwmt\.zathura|Papers|code)$"#
     open-maximized true
 }
 
