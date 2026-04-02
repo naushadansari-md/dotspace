@@ -1,0 +1,7 @@
+* {
+/* Dynamic Color Mappings */
+    color11:    @primary;
+    color1:     @primary;
+    color2:     @secondary;
+
+}

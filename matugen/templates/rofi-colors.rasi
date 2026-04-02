@@ -1,5 +1,17 @@
-/* Matugen -> Rofi colors (generated) */
+/* Matugen -> Rofi colors (Dynamic Template) */
 * {
-  primary: {{colors.primary.default.hex}};
-  outline: {{colors.outline.default.hex}};
+    /* Background and Foreground */
+    background:     {{colors.surface.default.hex}};
+    foreground:     {{colors.on_surface.default.hex}};
+    
+    /* Primary Accents */
+    primary:        {{colors.primary.default.hex}};
+    on-primary:     {{colors.on_primary.default.hex}};
+    
+    /* UI Details */
+    outline:        {{colors.outline.default.hex}};
+    error:          {{colors.error.default.hex}};
+    
+    /* Harmonized Secondary */
+    secondary:      {{colors.secondary.default.hex}};
 }

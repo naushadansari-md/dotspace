@@ -1,0 +1,17 @@
+/* Matugen -> Rofi colors (Dynamic Template) */
+* {
+    /* Background and Foreground */
+    background:     #191113;
+    foreground:     #efdfe2;
+    
+    /* Primary Accents */
+    primary:        #ffb0c9;
+    on-primary:     #541d33;
+    
+    /* UI Details */
+    outline:        #9e8c90;
+    error:          #ffb4ab;
+    
+    /* Harmonized Secondary */
+    secondary:      #e2bdc7;
+}

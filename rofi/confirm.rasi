@@ -2,7 +2,7 @@
    Confirm Dialog – Matugen Integrated
    ========================================= */
 
-@import "/home/saad/.config/rofi/matugen-colors.rasi"
+@import "/home/saad/.config/rofi/colors.rasi"
 
 * {
     font: "JetBrainsMono Nerd Font 10";

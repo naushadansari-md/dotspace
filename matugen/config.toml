@@ -38,7 +38,7 @@ post_hook = 'pkill -x nwg-drawer 2>/dev/null || true'
 
 [templates.rofi]
 input_path = '~/.config/matugen/templates/rofi-colors.rasi'
-output_path = '~/.config/rofi/matugen-colors.rasi'
+output_path = '~/.config/rofi/colors.rasi'
 post_hook = 'pkill rofi || true'
 
 [templates.gtk3]
@@ -48,7 +48,3 @@ output_path = '~/.config/gtk-3.0/colors.css'
 [templates.gtk4]
 input_path = '~/.config/matugen/templates/gtk-colors.css'
 output_path = '~/.config/gtk-4.0/colors.css'
-
-[templates.walker]
-input_path = '~/.config/matugen/templates/colors.css'
-output_path = '~/.config/walker/colors.css'
