@@ -10,11 +10,13 @@ SELF="$HOME/.config/niri/scripts/swayidle-power.sh"
 AC_WARN=595
 AC_LOCK=600
 AC_OFF=900
+AC_KBD=120
 
 # On battery
 BAT_WARN=295
 BAT_LOCK=300
 BAT_OFF=420
+BAT_KBD=30
 
 # --------------------------
 
@@ -76,13 +78,17 @@ start_swayidle() {
     WARN_T="$AC_WARN"
     LOCK_T="$AC_LOCK"
     OFF_T="$AC_OFF"
+    KBD_T="$AC_KBD"
   else
     WARN_T="$BAT_WARN"
     LOCK_T="$BAT_LOCK"
     OFF_T="$BAT_OFF"
+    KBD_T="$BAT_KBD"
   fi
 
-  swayidle -w \
+swayidle -w \
+    timeout "$KBD_T" 'brightnessctl -d smc::kbd_backlight s 0' \
+    resume 'brightnessctl -d smc::kbd_backlight set 51' \
     timeout "$WARN_T" "$WARN" \
     timeout "$LOCK_T" 'swaylock -f' \
     timeout "$OFF_T" "$SELF --outputs-off" \

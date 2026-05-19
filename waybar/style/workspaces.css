@@ -4,11 +4,11 @@
 
 /* ===== Container ===== */
 #workspaces {
-  padding: 5px 8px 5px 8px;
-  margin: 0 6px;
-  border-radius: 10px;
+  padding: 0px 4px;
+  margin: 0 4px;
+  border-radius: 8px;
   background: radial-gradient(circle at 50% 250%,
-            alpha(shade(@surface, 0.85), 0.90),
+            alpha(shade(@surface, 0.85), 0.90), 
             alpha(@surface_dim, 0.9)) padding-box,
         linear-gradient(@primary, @on_primary) border-box;
 
@@ -37,28 +37,29 @@
 #workspaces button {
   color: @on_surface;
   border-radius: 3px;
-  padding:0px 5px 0px 5px;
-  margin:0px 2px 0px 2px;
+  padding:0px 6px;
+  margin:2px 2px;
   transition: all 0.3s ease-in-out;
   border: 1px solid transparent;
-
 }
 
 
 /* ===== Hover State ===== */
 #workspaces button:hover {
  background:alpha(@secondary,0.2);
- border-radius: 8px;
+ border-radius: 6px;
 }
 
 
 /* ===== Active Workspace ===== */
 #workspaces button.active {
-  background: alpha(@primary, 0.2);
+  /* background: alpha(@primary, 0.2); */
   border: 1px solid alpha(@primary, 0.6);
   transition: all 0.3s ease-in-out;
-  min-width: 22px;
-  border-radius: 8px;
+  padding: 0px 6px;
+  margin: 2px 2px;
+  min-width: 14px;
+  border-radius: 6px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
 }
 
@@ -67,8 +68,8 @@
   opacity: 1;
   background: alpha(@error, 0.25);
   border: 1px solid alpha(@error, 0.6);
-  min-width: 30px;
-  border-radius: 8px;
+  min-width: 14px;
+  border-radius: 6px;
   box-shadow:
     0 0 14px alpha(@error, 0.35);
 }

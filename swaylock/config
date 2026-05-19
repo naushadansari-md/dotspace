@@ -1,6 +1,6 @@
 ignore-empty-password
 font=TerminessNerd Font Bold
-font-size=88
+font-size=72
 
 # Clock
 clock
@@ -12,7 +12,7 @@ screenshots
 fade-in=0.2
 
 # Smooth blur
-effect-blur=20x2
+effect-blur=25x3
 effect-scale=0.35
 
 # Minimal indicator (required for text rendering)
@@ -23,8 +23,8 @@ indicator-thickness=2
 indicator-caps-lock
 
 
-indicator-x-position=960
-indicator-y-position=350
+indicator-x-position=720
+indicator-y-position=450
 
 separator-color=00000000
 

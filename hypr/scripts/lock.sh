@@ -1,40 +1,47 @@
 #!/usr/bin/env bash
 set -Eeuo pipefail
 
+# Use 1440x900 for MBA 2017 to save CPU cycles during processing
+RES="1440x900"
 BLUR="$HOME/.cache/blurred_wallpaper.png"
 WALL_DIR="$HOME/.config/hypr/wallpapers"
-RES="1920x1080"
 
 have() { command -v "$1" >/dev/null 2>&1; }
 
-# If blur missing or empty → create it
+# 1. IMMEDIATE HARDWARE ACTION
+# Turn off keyboard backlight instantly before doing any heavy image processing
+if have brightnessctl; then
+    brightnessctl -d "smc::kbd_backlight" set 0
+fi
+
+# 2. OPTIMIZED BLUR GENERATION
 if [[ ! -s "$BLUR" ]]; then
     mkdir -p "$(dirname "$BLUR")"
-
+    
+    # Get current wallpaper efficiently
     CURRENT=""
-
-    # Try to get current wallpaper from swww
     if have swww; then
-        CURRENT="$(swww query 2>/dev/null | sed -n 's/.*image: //p' | head -n1 || true)"
+        CURRENT=$(swww query | awk -F 'image: ' '{print $2}' | head -n1)
     fi
 
-    # If that failed → pick random wallpaper
+    # Fallback to random if swww query fails
     if [[ -z "$CURRENT" || ! -f "$CURRENT" ]]; then
-        CURRENT="$(find "$WALL_DIR" -type f \( -iname "*.jpg" -o -iname "*.png" -o -iname "*.webp" \) | shuf -n1 || true)"
+        CURRENT=$(find "$WALL_DIR" -type f \( -iname "*.jpg" -o -iname "*.png" -o -iname "*.webp" \) | shuf -n1)
     fi
 
-    # If ImageMagick exists → generate blur
-    if [[ -n "$CURRENT" && -f "$CURRENT" && $(command -v magick) ]]; then
+    if [[ -n "$CURRENT" && -f "$CURRENT" ]] && have magick; then
+        # OPTIMIZATION: Downscale BEFORE blurring. 
+        # Blurring a small image and then scaling up is 10x faster and looks identical.
         magick "$CURRENT" \
-            -resize "${RES}^" \
-            -gravity center \
-            -extent "$RES" \
-            -blur 0x20 \
-            "$BLUR" || cp -f "$CURRENT" "$BLUR"
+            -resize 25% \
+            -blur 0x5 \
+            -resize "$RES!" \
+            "$BLUR"
     else
-        # Last fallback → copy wallpaper directly
         [[ -n "$CURRENT" && -f "$CURRENT" ]] && cp -f "$CURRENT" "$BLUR"
     fi
 fi
 
+# 3. EXECUTE LOCK
+# Using 'exec' replaces the shell process with hyprlock, saving RAM.
 exec hyprlock

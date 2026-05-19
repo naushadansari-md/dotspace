@@ -4,15 +4,21 @@
 
 #custom-notification {
   color: @on_surface;
-  min-width: 16px;
+  min-width: 20px;
 
-  padding: 4px 10px;
-  margin: 0 6px;
-  border-radius: 12px;
+  padding: 0px 8px;
+  margin: 0 4px;
+  border-radius: 8px;
 
   transition: 150ms ease;
-  background: alpha(@surface, 0.35);
-  border: 1px solid alpha(@outline, 0.25);
+background: radial-gradient(circle at 50% 250%,
+              alpha(shade(@surface, 0.85), 0.90),
+              alpha(@surface_dim, 0.90)) padding-box,
+          linear-gradient(@primary, @on_primary) border-box;
+
+  border: 1px solid transparent; /* Required for the border-box gradient */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  opacity: 0.85;
 }
 
 /* DND: dim + soft error tint */

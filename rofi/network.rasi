@@ -1,0 +1,149 @@
+/*******************************************************
+ * ROFI NetworkManager-dmenu Configs
+ *******************************************************/
+ 
+configuration {
+    show-icons:      false;
+    sidebar-mode:     false;
+    hover-select:     true;    
+    me-select-entry:  "";
+    me-accept-entry:  [MousePrimary];
+}
+
+@import "~/.cache/wal/colors-rofi-pywal"
+
+* {
+    font:                          "JetBrainsMono Nerd Font Bold 11";
+    foreground:                    #fdf6e3;
+    background:                    #1d1f21cc; 
+    transparent:                   #ffffff00;
+    accent:                        #8f8f8f; 
+    foreground-selection:          @foreground; 
+
+    background-color:              @transparent;
+    text-color:                    @foreground;
+    selected-normal-foreground:    @foreground-selection;
+    normal-foreground:             @foreground;
+    alternate-normal-background:   @transparent;
+    selected-urgent-foreground:    @foreground;
+    urgent-foreground:             @foreground;
+    alternate-urgent-background:   @background;
+    active-foreground:             @accent;
+    selected-active-foreground:    @color11;
+    alternate-normal-foreground:   @foreground;
+    alternate-active-background:   @background;
+    border-color:                  @color2;
+    normal-background:             @transparent;
+    selected-normal-background:    @color11;
+    separatorcolor:                @accent;
+    urgent-background:             @accent;
+    alternate-urgent-foreground:   @foreground;
+    selected-urgent-background:    @accent;
+    alternate-active-foreground:   @foreground;
+    selected-active-background:    @transparent;
+    active-background:             @transparent;
+}
+
+window {
+    location:         center;
+    anchor:           center;
+    width:            480px;        
+    x-offset:         0px;          /* Centers it horizontally */
+    y-offset:         0px;          /* Centers it vertically */
+    
+    text-color:       @foreground;
+    background-color: @background;
+    padding:          12px;        
+    border:           2px;
+    border-radius:    6px;
+}
+
+mainbox {
+    border:  0;
+    padding: 0;
+}
+
+textbox {
+    text-color: @foreground;
+}
+
+listview {
+    lines:        8;            /* Shows plenty of networks without expanding too far */
+    spacing:      4px;
+    dynamic:      true;
+    fixed-height: false;
+    border:       0;
+    scrollbar:    false;
+    text-color:   @separatorcolor;
+}
+
+element {
+    border:        0;
+    padding:       6px 8px;     /* Keeps lines distinct but compact */
+    border-radius: 4px;
+}
+
+element-text {
+    background-color: inherit;
+    text-color:       inherit;
+}
+
+element.normal.normal {
+    text-color:       @normal-foreground;
+    background-color: @normal-background;
+}
+element.normal.urgent {
+    text-color:       @urgent-foreground;
+    background-color: @urgent-background;
+}
+element.normal.active {
+    text-color:       @active-foreground;
+    background-color: @active-background;
+}
+element.selected.normal {
+    text-color:       @selected-normal-foreground;
+    background-color: @selected-normal-background;
+}
+element.selected.urgent {
+    text-color:       @selected-urgent-foreground;
+    background-color: @selected-urgent-background;
+}
+element.selected.active {
+    text-color:       @selected-active-foreground;
+    background-color: @selected-active-background;
+}
+element.alternate.normal {
+    text-color:       @alternate-normal-foreground;
+    background-color: @alternate-normal-background;
+}
+element.alternate.urgent {
+    text-color:       @alternate-urgent-foreground;
+    background-color: @alternate-urgent-background;
+}
+element.alternate.active {
+    text-color:       @alternate-active-foreground;
+    background-color: @alternate-active-background;
+}
+
+inputbar {
+    margin:   0px 0px 8px 0px; 
+    children: [prompt,textbox-prompt-colon,entry];
+}
+
+prompt {
+    spacing:    0;
+    text-color: @normal-foreground;
+}
+
+textbox-prompt-colon {
+    expand:     false;
+    margin:     0px 4px 0px 0px;
+    str:        ":";
+    text-color: @normal-foreground;
+}
+
+entry {
+    placeholder: "Network command...";
+    spacing:     0;
+    text-color:  @normal-foreground;
+}

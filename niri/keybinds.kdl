@@ -5,18 +5,21 @@ binds {
     // ────────────── Application Shortcuts ──────────────
     MOD+Return            { spawn "kitty"; }
     MOD+B                 { spawn "firefox"; }
-    MOD+C                 { spawn "code"; }
     MOD+G                 { spawn "geany"; }
-    MOD+E                 { spawn "nemo"; }
+    MOD+E                 { spawn "thunar"; }
     MOD+SHIFT+W           { spawn "~/.config/niri/scripts/set-wallpaper.sh"; }
     MOD+A                 { spawn "rofi" "-show" "drun"; }
     MOD+N                 { spawn "swaync-client -t"; }
-    MOD+SPACE      { spawn "~/.config/waybar/scripts/system-menu.sh"; }
+    MOD+Shift+N           { spawn "swaync-client" "-d"; }
+
 
     // ────────────── Brightness ──────────────
     XF86MonBrightnessUp   { spawn "~/.config/niri/scripts/system-osd.sh" "brightness" "--inc"; }
     XF86MonBrightnessDown { spawn "~/.config/niri/scripts/system-osd.sh" "brightness" "--dec"; }
 
+    // ────────────── Backlight ──────────────
+    XF86KbdBrightnessUp { spawn "light" "-s" "sysfs/leds/smc::kbd_backlight" "-A" "5"; }
+    XF86KbdBrightnessDown { spawn "light" "-s" "sysfs/leds/smc::kbd_backlight" "-U" "5"; }
 
     // ────────────── Volume ──────────────
     XF86AudioRaiseVolume  { spawn "~/.config/niri/scripts/system-osd.sh" "volume" "--inc"; }
@@ -36,7 +39,7 @@ binds {
 
 
     // ────────────── Window Management ──────────────
-    MOD+Q     { close-window; }
+    MOD+Q     repeat=false { close-window; }
 
     MOD+H     { focus-column-left; }
     MOD+J     { focus-workspace-down; }
@@ -135,9 +138,10 @@ binds {
 
     // ────────────── Layout Controls ──────────────
     MOD+R            { switch-preset-column-width; }
-    MOD+SHIFT+R      { switch-preset-column-width-back; }
-    MOD+M            { center-column; }
-    MOD+CTRL+C       { center-visible-columns; }
+    MOD+SHIFT+R      { switch-preset-window-height; }
+    MOD+Ctrl+R       { reset-window-height; }
+    MOD+C            { center-column; }
+    MOD+SHIFT+C      { center-visible-columns; }
 
     MOD+BRACKETLEFT  { consume-or-expel-window-left; }
     MOD+BRACKETRIGHT { consume-or-expel-window-right; }
@@ -150,11 +154,16 @@ binds {
 
 
     // ────────────── Window Modes ──────────────
-    MOD+T          { toggle-window-floating; }
-    MOD+F          { maximize-column; }
-    MOD+V          { toggle-window-floating; }
-    MOD+SHIFT+V    { switch-focus-between-floating-and-tiling; }
-    MOD+W          { toggle-column-tabbed-display; }
+    MOD+T           { toggle-window-floating; }
+    MOD+F           { maximize-column; }
+    MOD+Shift+F     { fullscreen-window; }
+    MOD+V           { toggle-window-floating; }
+    MOD+SHIFT+V     { switch-focus-between-floating-and-tiling; }
+    MOD+W           { toggle-column-tabbed-display; }
+    MOD+Space       { switch-layout "next"; }
+    MOD+Shift+Space { switch-layout "prev"; }
+
+
 
 
     // ────────────── Utilities ──────────────

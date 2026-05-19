@@ -153,3 +153,9 @@ alias dc='pkill -f dock-smart.sh; sleep 0.3; ~/.config/hypr/scripts/dock-control
 
 alias sd='pkill -f dock-smart.sh; sleep 0.3; ~/.config/hypr/scripts/start-dock.sh &'
 
+
+
+# Connect Zsh to the systemd ssh-agent
+if [ -S "/run/user/1000/ssh-agent.socket" ]; then
+    export SSH_AUTH_SOCK="/run/user/1000/ssh-agent.socket"
+fi

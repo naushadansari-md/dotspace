@@ -37,5 +37,10 @@ if pgrep -x niri >/dev/null 2>&1; then
   exec waybar -c "$HOME/.config/waybar/config-niri.jsonc"
 fi
 
+# Sway
+if [ -n "${SWAYSOCK:-}" ] || pgrep -x sway >/dev/null 2>&1; then
+  exec waybar -c "$HOME/.config/waybar/config-sway.jsonc"
+fi
+
 # Fallback
 exec waybar

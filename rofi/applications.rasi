@@ -21,7 +21,7 @@ configuration {
 /* ---------- Window ---------- */
 
 window {
-    width: 280px;
+    width: 240px;
 
     location: northwest;
     anchor: northwest;
@@ -84,7 +84,7 @@ listview {
 
 element {
     border-radius: 6px;
-    padding: 5px 10px;
+    padding: 6px 14px;
     background-color: transparent;
 }
 

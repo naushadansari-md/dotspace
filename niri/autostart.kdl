@@ -3,7 +3,7 @@
 // ────────────── Core Services ──────────────
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
-spawn-at-startup "elephant"
+spawn-at-startup "light" "-s" "sysfs/leds/smc::kbd_backlight" "-S" "20"
 
 
 // ────────────── Notifications & UI ──────────────
@@ -19,13 +19,13 @@ spawn-at-startup "~/.config/niri/scripts/battery-monitor.sh"
 
 
 // ────────────── GTK Theme ──────────────
-spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "gtk-theme" "Gruvbox-Dark"
-spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "icon-theme" "Gruvbox-Plus-Dark"
+spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "gtk-theme" "Yaru-yellow-dark"
+spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "icon-theme" "Yaru-yellow-dark"
 spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "color-scheme" "prefer-dark"
 
 
 // ────────────── Cursor ──────────────
-spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "cursor-theme" "Bibata-Modern-Ice"
+spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "cursor-theme" "Yaru"
 spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "cursor-size" "24"
 
 

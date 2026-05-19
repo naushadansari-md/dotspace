@@ -1,0 +1,45 @@
+[
+  {
+    "layer": "top",
+    "output": ["DP-1", "DP-2", "eDP-1"],
+    "position": "top",
+
+    "margin-top": 10,
+    "margin-left": 10,
+    "margin-right": 10,
+    "margin-bottom": 0,
+
+    "modules-left": [
+      "custom/systemmenu",
+      "sway/workspaces"
+     
+    ],
+
+    "modules-center": [
+      "custom/center"
+    ],
+
+ "modules-right": [
+    "tray",
+    "network",
+    "pulseaudio",
+    "custom/battery",
+    "clock",
+    "custom/notification"
+],
+
+    "include": [
+      "/home/saad/.config/waybar/modules/clock.json",
+      "/home/saad/.config/waybar/modules/battery.json",
+      "/home/saad/.config/waybar/modules/systemmenu.json",
+      "/home/saad/.config/waybar/modules/pulseaudio.json",
+      "/home/saad/.config/waybar/modules/network.json",
+      "/home/saad/.config/waybar/modules/workspaces.json",
+      "/home/saad/.config/waybar/modules/tray.json",
+      "/home/saad/.config/waybar/modules/notification.json",
+      "/home/saad/.config/waybar/modules/window.json",
+      "/home/saad/.config/waybar/modules/center.json"
+      
+    ]
+  }
+]

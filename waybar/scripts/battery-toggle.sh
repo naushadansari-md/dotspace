@@ -13,18 +13,18 @@ fi
 
 INFO="$(upower -i "$BAT_PATH")"
 
-PCT="$(printf "%s\n" "$INFO" | awk -F': *' '/percentage:/ {gsub("%","",$2); print $2; exit}')"
+# ✅ FIXED: Rounded percentage (no decimals)
+PCT="$(printf "%s\n" "$INFO" | awk -F': *' '/percentage:/ {gsub("%","",$2); printf "%.0f", $2; exit}')"
+
 STATE="$(printf "%s\n" "$INFO" | awk -F': *' '/state:/ {print $2; exit}')"
 TEMPTY="$(printf "%s\n" "$INFO" | awk -F': *' '/time to empty:/ {print $2; exit}')"
 TFULL="$(printf "%s\n" "$INFO" | awk -F': *' '/time to full:/ {print $2; exit}')"
 
-# Safe defaults (prevents integer compare errors)
+# Safe defaults
 PCT="${PCT:-0}"
 STATE="${STATE:-unknown}"
 
-# Pick icon by percentage + charging state
-# Discharging icons: Font Awesome battery (..)
-# Charging icons: Nerd Font (󰂇..󰂅). If your font lacks these, replace them with "" or "⚡".
+# Icons
 if [[ "$STATE" == "charging" ]]; then
   if   [[ "$PCT" -ge 90 ]]; then icon="󰂅"
   elif [[ "$PCT" -ge 70 ]]; then icon="󰂋"
@@ -41,7 +41,7 @@ else
   fi
 fi
 
-# Choose time string depending on state
+# Time string
 time_str=""
 if [[ "$STATE" == "discharging" ]]; then
   time_str="${TEMPTY:-}"
@@ -49,14 +49,14 @@ elif [[ "$STATE" == "charging" ]]; then
   time_str="${TFULL:-}"
 fi
 
-# Text based on mode
+# Text display
 if [[ "$MODE" == "time" && -n "$time_str" && "$time_str" != "unknown" ]]; then
   TEXT="${time_str} ${icon}"
 else
   TEXT="${icon} ${PCT}%"
 fi
 
-# Tooltip (keep \n sequences; Waybar supports them)
+# Tooltip
 TIP="Battery: ${PCT}%\nState: ${STATE}"
 if [[ -n "$time_str" && "$time_str" != "unknown" ]]; then
   if [[ "$STATE" == "discharging" ]]; then
@@ -77,7 +77,7 @@ elif [[ "$PCT" -le 30 ]]; then
   CLASS="$CLASS warning"
 fi
 
-# JSON escaping (quotes + backslashes + real newlines if they appear)
+# JSON escape
 json_escape() {
   sed -e 's/\\/\\\\/g' -e 's/"/\\"/g' -e ':a;N;$!ba;s/\n/\\n/g'
 }

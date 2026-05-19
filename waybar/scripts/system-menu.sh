@@ -22,16 +22,15 @@ confirm_action() {
 
 entries() {
   printf '%s\n' "󰌢  About This System"
-  printf '%s\n' "<span foreground='#666666'>---</span>"
+  printf '%s\n' "<span foreground='#666666'>──────────────────</span>"
   printf '%s\n' "󰒓  System Settings"
   printf '%s\n' "󰀻  Applications ›"
-  printf '%s\n' "<span foreground='#666666'>---</span>"
   printf '%s\n' "󰉋  Recent Items ›"
-  printf '%s\n' "<span foreground='#666666'>---</span>"
+  printf '%s\n' "<span foreground='#666666'>──────────────────</span>"
   printf '%s\n' "󰒲  Sleep"
   printf '%s\n' "󰑓  Restart"
   printf '%s\n' "󰐥  Shut Down"
-  printf '%s\n' "<span foreground='#666666'>---</span>"
+  printf '%s\n' "<span foreground='#666666'>──────────────────</span>"
   printf '%s\n' "󰌾  Lock Screen"
   printf '%s\n' "󰍃  Log Out"
 }
