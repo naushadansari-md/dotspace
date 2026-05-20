@@ -1,0 +1,15 @@
+# =====================================================================
+# I3 WINDOW MANAGER CORE CONFIG
+# =====================================================================
+
+# --- Modifier Key Definitions ---
+set $mod Mod4
+set $alt Mod1
+
+# --- Modular Configuration Imports ---
+include ~/.config/i3/config.d/base.conf
+include ~/.config/i3/config.d/keybinds.conf
+include ~/.config/i3/config.d/autostart.conf
+include ~/.config/i3/config.d/bar.conf
+include ~/.config/i3/config.d/window.conf
+include ~/.config/i3/config.d/workspaces.conf
