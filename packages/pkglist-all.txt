@@ -21,7 +21,7 @@ hyprlock
 hyprpaper
 imv
 jq
-kitty
+foot
 light
 matugen
 mbpfan-git

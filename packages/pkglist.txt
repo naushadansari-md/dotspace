@@ -20,9 +20,8 @@ hyprland
 hyprlock
 hyprpaper
 imv
-intel-ucode
 jq
-kitty
+foot
 light
 matugen
 mbpfan-git
