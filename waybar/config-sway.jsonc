@@ -29,16 +29,16 @@
 ],
 
     "include": [
-      "/home/saad/.config/waybar/modules/clock.json",
-      "/home/saad/.config/waybar/modules/battery.json",
-      "/home/saad/.config/waybar/modules/systemmenu.json",
-      "/home/saad/.config/waybar/modules/pulseaudio.json",
-      "/home/saad/.config/waybar/modules/network.json",
-      "/home/saad/.config/waybar/modules/workspaces.json",
-      "/home/saad/.config/waybar/modules/tray.json",
-      "/home/saad/.config/waybar/modules/notification.json",
-      "/home/saad/.config/waybar/modules/window.json",
-      "/home/saad/.config/waybar/modules/center.json"
+      "/home/zayd/.config/waybar/modules/clock.json",
+      "/home/zayd/.config/waybar/modules/battery.json",
+      "/home/zayd/.config/waybar/modules/systemmenu.json",
+      "/home/zayd/.config/waybar/modules/pulseaudio.json",
+      "/home/zayd/.config/waybar/modules/network.json",
+      "/home/zayd/.config/waybar/modules/workspaces.json",
+      "/home/zayd/.config/waybar/modules/tray.json",
+      "/home/zayd/.config/waybar/modules/notification.json",
+      "/home/zayd/.config/waybar/modules/window.json",
+      "/home/zayd/.config/waybar/modules/center.json"
       
     ]
   }

@@ -11,7 +11,7 @@
       "^microsoft-edge$": "󰇩  Edge",
       "^org\\.mozilla\\.Thunderbird$": "  Thunderbird",
       "^Enpass$": "  Enpass",
-      "^code$": "󰨞  VS Code",
+      "^com.microsoft.VSCode$": "󰨞  VS Code",
       "^VSCodium$": "󰨞  VSCodium",
       "^subl$": "  Sublime",
       "^geany$": "  Geany",

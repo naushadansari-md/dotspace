@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # ---------------------------------------------------------
 # Wallpaper (awww/swww) + matugen (v4+) + waybar
-# Non-interactive, script-safe, hyprlock-safe
+# Optimized with per-wallpaper caching for instant switching
 # ---------------------------------------------------------
 
 set -Eeuo pipefail
@@ -22,8 +22,7 @@ fi
 # ----------------------------
 WALLPAPERS_DIR="$HOME/.config/niri/wallpapers"
 CACHE_DIR="$HOME/.cache"
-BLUR_OUTPUT="$CACHE_DIR/blurred_wallpaper.png"
-BLUR_STAMP="$CACHE_DIR/blurred_wallpaper.stamp"
+BLUR_CACHE_DIR="$CACHE_DIR/blurred_wallpapers"
 RASI_FILE="$CACHE_DIR/current_wallpaper.rasi"
 RES="1920x1080"
 
@@ -56,26 +55,25 @@ wallpaper="${1:-}"
 [[ -f "$wallpaper" ]] || fail "Wallpaper not found"
 log "Wallpaper: $wallpaper"
 
-mkdir -p "$CACHE_DIR"
+mkdir -p "$CACHE_DIR" "$BLUR_CACHE_DIR"
 
 # ----------------------------
 # Generate Rasi file (for Rofi)
 # ----------------------------
-# This creates a theme file you can @import in your rofi config
 printf '*{ current-image: url("%s", height); }\n' "$wallpaper" > "$RASI_FILE"
 
 # ----------------------------
-# Blur wallpaper (hyprlock safe)
+# Blur wallpaper (Per-wallpaper cache)
 # ----------------------------
-need_blur=0
-[[ ! -f "$BLUR_OUTPUT" || ! -f "$BLUR_STAMP" ]] && need_blur=1
-[[ "$(cat "$BLUR_STAMP" 2>/dev/null)" != "$wallpaper" ]] && need_blur=1
+# Generate a unique hash for the wallpaper path to use as cache key
+wall_hash="$(printf '%s' "$wallpaper" | sha256sum | cut -d' ' -f1)"
+BLUR_OUTPUT="$BLUR_CACHE_DIR/${wall_hash}.png"
 
 im=""
 have magick && im="magick"
 have convert && [[ -z "$im" ]] && im="convert"
 
-if [[ "$need_blur" -eq 1 ]]; then
+if [[ ! -f "$BLUR_OUTPUT" ]]; then
   if [[ -n "$im" ]]; then
     "$im" "$wallpaper" \
       -strip \
@@ -87,7 +85,6 @@ if [[ "$need_blur" -eq 1 ]]; then
   else
     cp "$wallpaper" "$BLUR_OUTPUT"
   fi
-  echo "$wallpaper" > "$BLUR_STAMP"
 fi
 
 # ----------------------------

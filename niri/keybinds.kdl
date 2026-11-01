@@ -3,9 +3,9 @@
 binds {
 
     // ────────────── Application Shortcuts ──────────────
-    MOD+Return            { spawn "kitty"; }
+    MOD+Return            { spawn "foot"; }
     MOD+B                 { spawn "firefox"; }
-    MOD+G                 { spawn "geany"; }
+    MOD+G                 { spawn "code"; }
     MOD+E                 { spawn "thunar"; }
     MOD+SHIFT+W           { spawn "~/.config/niri/scripts/set-wallpaper.sh"; }
     MOD+A                 { spawn "rofi" "-show" "drun"; }

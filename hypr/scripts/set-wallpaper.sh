@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # ---------------------------------------------------------
-# Wallpaper (awww/swww) + matugen (v4+) + waybar + dock
-# Non-interactive, script-safe, hyprlock-safe
+# Wallpaper (awww/swww) + matugen (v4+) + waybar + dock + rofi rasi
+# Non-interactive, script-safe, hyprlock-safe (Optimized Cache)
 # ---------------------------------------------------------
 
 set -Eeuo pipefail
@@ -24,9 +24,9 @@ WALLPAPERS_DIR="$HOME/.config/hypr/wallpapers"
 DOCK_SCRIPT="$HOME/.config/hypr/scripts/start-dock.sh"
 
 CACHE_DIR="$HOME/.cache"
-BLUR_OUTPUT="$CACHE_DIR/blurred_wallpaper.png"
-BLUR_STAMP="$CACHE_DIR/blurred_wallpaper.stamp"
-RES="1920x1080"
+BLUR_CACHE_DIR="$CACHE_DIR/blurred_wallpapers"
+RASI_FILE="$CACHE_DIR/current_wallpaper.rasi"
+RES="1440x900"
 
 SWWW_TRANSITION="none"
 SWWW_DURATION="0"
@@ -61,20 +61,24 @@ wallpaper="${1:-}"
 log "Wallpaper: $wallpaper"
 log "Backend: ${WALL_CMD:-none}"
 
-mkdir -p "$CACHE_DIR"
+mkdir -p "$CACHE_DIR" "$BLUR_CACHE_DIR"
 
 # ----------------------------
-# Blur wallpaper (hyprlock safe)
+# Generate Rasi file (for Rofi)
 # ----------------------------
-need_blur=0
-[[ ! -f "$BLUR_OUTPUT" || ! -f "$BLUR_STAMP" ]] && need_blur=1
-[[ "$(cat "$BLUR_STAMP" 2>/dev/null)" != "$wallpaper" ]] && need_blur=1
+printf '*{ current-image: url("%s", height); }\n' "$wallpaper" > "$RASI_FILE"
+
+# ----------------------------
+# Blur wallpaper (Per-wallpaper cache)
+# ----------------------------
+wall_hash="$(printf '%s' "$wallpaper" | sha256sum | cut -d' ' -f1)"
+BLUR_OUTPUT="$BLUR_CACHE_DIR/${wall_hash}.png"
 
 im=""
 have magick && im="magick"
 have convert && [[ -z "$im" ]] && im="convert"
 
-if [[ "$need_blur" -eq 1 ]]; then
+if [[ ! -f "$BLUR_OUTPUT" ]]; then
   if [[ -n "$im" ]]; then
     "$im" "$wallpaper" \
       -resize "${RES}^" \
@@ -85,7 +89,6 @@ if [[ "$need_blur" -eq 1 ]]; then
   else
     cp "$wallpaper" "$BLUR_OUTPUT"
   fi
-  echo "$wallpaper" > "$BLUR_STAMP"
 fi
 
 # ----------------------------
@@ -123,11 +126,9 @@ if have waybar; then
   fi
 fi
 
-
 # ----------------------------
 # Restart Dock (nwg-dock-hyprland)
 # ----------------------------
-
 sleep 1
 
 killall nwg-dock-hyprland 2>/dev/null || true

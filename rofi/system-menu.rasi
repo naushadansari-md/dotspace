@@ -1,8 +1,8 @@
 /* =========================================
-   Waybar + Hyprland / Niri
+   System Menu - Hyprland / Niri
    ========================================= */
 
-@import "/home/saad/.config/rofi/colors.rasi"
+@import "/home/zayd/.config/rofi/colors.rasi"
 
 
 * {

@@ -1,0 +1,76 @@
+-- ============================================================
+-- Layout & General Settings Configuration
+-- ============================================================
+
+-- Touchpad / Global Gestures
+hl.gesture({
+    fingers = 3,
+    direction = "horizontal",
+    action = "workspace",
+})
+
+hl.config({
+    -- --------------------------------------------------------
+    -- Dwindle Layout
+    -- --------------------------------------------------------
+    dwindle = {
+        -- pseudotile = true,
+        preserve_split = true,
+    },
+
+    -- --------------------------------------------------------
+    -- Master Layout
+    -- --------------------------------------------------------
+    master = {
+        new_status = "master",
+        new_on_top = 1,
+        mfact = 0.5,
+    },
+
+    -- --------------------------------------------------------
+    -- Bind Behaviour
+    -- --------------------------------------------------------
+    binds = {
+        workspace_back_and_forth = false,
+        allow_workspace_cycles = true,
+        pass_mouse_when_bound = false,
+    },
+
+    -- --------------------------------------------------------
+    -- Gestures
+    -- --------------------------------------------------------
+    gestures = {
+        workspace_swipe_distance = 500,
+        workspace_swipe_invert = true,
+        workspace_swipe_min_speed_to_force = 30,
+        workspace_swipe_cancel_ratio = 0.5,
+        workspace_swipe_create_new = true,
+        workspace_swipe_forever = true,
+    },
+
+    -- --------------------------------------------------------
+    -- Misc Settings
+    -- --------------------------------------------------------
+    misc = {
+        disable_hyprland_logo = true,
+        disable_splash_rendering = true,
+        initial_workspace_tracking = 1,
+        on_focus_under_fullscreen = 1,
+        allow_session_lock_restore = true,
+    },
+
+    -- --------------------------------------------------------
+    -- XWayland
+    -- --------------------------------------------------------
+    xwayland = {
+        force_zero_scaling = true,
+    },
+
+    -- --------------------------------------------------------
+    -- Render Settings
+    -- --------------------------------------------------------
+    render = {
+        direct_scanout = false,
+        new_render_scheduling = true,
+    },
+})

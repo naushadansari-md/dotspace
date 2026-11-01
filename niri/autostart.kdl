@@ -19,8 +19,8 @@ spawn-at-startup "~/.config/niri/scripts/battery-monitor.sh"
 
 
 // ────────────── GTK Theme ──────────────
-spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "gtk-theme" "Yaru-yellow-dark"
-spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "icon-theme" "Yaru-yellow-dark"
+spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "gtk-theme" "Yaru-olive"
+spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "icon-theme" "Yaru-olive"
 spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "color-scheme" "prefer-dark"
 
 

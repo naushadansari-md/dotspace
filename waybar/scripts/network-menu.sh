@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-ROFI_THEME="/home/saad/.config/rofi/rofi-menu.rasi"
+ROFI_THEME="/home/zayd/.config/rofi/network-menu.rasi"
 ROFI="/usr/bin/rofi"
 NMCLI="/usr/bin/nmcli"
 NOTIFY="/usr/bin/notify-send"

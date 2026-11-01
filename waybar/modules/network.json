@@ -12,6 +12,6 @@
     "format-disconnected": "󰖪 ",
     "format-alt": "  {signalStrength}%",
     "on-click": "waybar-msg module network toggle-format",
-    "on-click-right": "/home/saad/.config/waybar/scripts/network-menu.sh"  
+    "on-click-right": "/home/zayd/.config/waybar/scripts/network-menu.sh"  
   }
 }

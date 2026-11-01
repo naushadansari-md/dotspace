@@ -6,7 +6,7 @@ THEME_FILE="$DOCK_DIR/dock-theme"
 DISABLED_FILE="$DOCK_DIR/dock-disabled"
 
 DOCK_THEME="glass"
-ICON_SIZE="40"
+ICON_SIZE="38"
 WIDTH="5"
 MB="10"
 EXTRA_FLAGS=()

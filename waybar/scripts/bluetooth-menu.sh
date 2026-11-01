@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-ROFI="rofi -dmenu -i -markup-rows -p Bluetooth -theme /home/saad/.config/rofi/rofi-menu.rasi"
+ROFI="rofi -dmenu -i -markup-rows -p Bluetooth -theme /home/zayd/.config/rofi/bluetooth-menu.rasi"
 BLUETOOTHCTL="/usr/bin/bluetoothctl"
 NOTIFY="/usr/bin/notify-send"
 

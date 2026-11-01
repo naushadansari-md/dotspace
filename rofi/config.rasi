@@ -1,3 +1,7 @@
+/* =========================================
+   Rofi config - Hyprland / Niri
+   ========================================= */
+
 configuration {
 
     modi:                       "drun,run,window";

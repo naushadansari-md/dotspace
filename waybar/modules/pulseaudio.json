@@ -20,6 +20,6 @@
     "tooltip": true,
     "tooltip-format": "Volume: {volume}%\nDevice: {desc}",
     "on-click": "pypr toggle volume",
-    "on-click-right": "/home/saad/.config/waybar/scripts/bluetooth-menu.sh"
+    "on-click-right": "/home/zayd/.config/waybar/scripts/bluetooth-menu.sh"
   }
 }

@@ -1,15 +1,15 @@
 /* ------------------------------
    IMPORTS
 --------------------------------*/
-@import "/home/saad/.config/waybar/colors.css";
-@import "/home/saad/.config/waybar/style/clock.css";
-@import "/home/saad/.config/waybar/style/systemmenu.css";
-@import "/home/saad/.config/waybar/style/pulseaudio.css";
-@import "/home/saad/.config/waybar/style/network.css";
-@import "/home/saad/.config/waybar/style/workspaces.css";
-@import "/home/saad/.config/waybar/style/tray.css";
-@import "/home/saad/.config/waybar/style/custom-battery.css";
-@import "/home/saad/.config/waybar/style/notification.css";
+@import "/home/zayd/.config/waybar/colors.css";
+@import "/home/zayd/.config/waybar/style/clock.css";
+@import "/home/zayd/.config/waybar/style/systemmenu.css";
+@import "/home/zayd/.config/waybar/style/pulseaudio.css";
+@import "/home/zayd/.config/waybar/style/network.css";
+@import "/home/zayd/.config/waybar/style/workspaces.css";
+@import "/home/zayd/.config/waybar/style/tray.css";
+@import "/home/zayd/.config/waybar/style/custom-battery.css";
+@import "/home/zayd/.config/waybar/style/notification.css";
 
 /* ------------------------------
    GLOBAL RESET
