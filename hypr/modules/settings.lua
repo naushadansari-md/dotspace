@@ -2,13 +2,6 @@
 -- Layout & General Settings Configuration
 -- ============================================================
 
--- Touchpad / Global Gestures
-hl.gesture({
-    fingers = 3,
-    direction = "horizontal",
-    action = "workspace",
-})
-
 hl.config({
     -- --------------------------------------------------------
     -- Dwindle Layout

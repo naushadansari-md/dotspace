@@ -20,6 +20,7 @@ require("modules.animations")
 -- Inputs, Settings & Binds
 -- ------------------------------------------------------------
 require("modules.inputs")
+require("modules.gestures")
 require("modules.settings")
 require("modules.keybindings")
 require("modules.windowrules")

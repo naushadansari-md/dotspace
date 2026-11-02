@@ -92,16 +92,22 @@ if [[ ! -f "$BLUR_OUTPUT" ]]; then
 fi
 
 # ----------------------------
-# Set wallpaper
+# Set wallpaper (Robust Daemon Check)
 # ----------------------------
 if [[ -n "$WALL_CMD" ]]; then
-  if ! "$WALL_CMD" query >/dev/null 2>&1; then
-    pkill -x "${WALL_CMD}-daemon" 2>/dev/null || true
-    "$WALL_CMD" init >/dev/null 2>&1 || true
-    sleep 0.2
+  DAEMON_NAME="${WALL_CMD}-daemon"
+  
+  if ! pgrep -x "$DAEMON_NAME" >/dev/null 2>&1; then
+    nohup "$DAEMON_NAME" >/dev/null 2>&1 &
+    sleep 0.5
   fi
 
-  "$WALL_CMD" img "$wallpaper" >/dev/null 2>&1 || true
+  # Apply wallpaper supporting swww transition flags safely
+  if [[ "$WALL_CMD" == "swww" ]]; then
+    swww img "$wallpaper" --transition-type "$SWWW_TRANSITION" --transition-duration "$SWWW_DURATION" >/dev/null 2>&1 || true
+  else
+    "$WALL_CMD" img "$wallpaper" >/dev/null 2>&1 || true
+  fi
 fi
 
 # ----------------------------
@@ -135,3 +141,4 @@ killall nwg-dock-hyprland 2>/dev/null || true
 sleep 0.3
 
 [[ -x "$DOCK_SCRIPT" ]] && "$DOCK_SCRIPT" &
+log "DONE"

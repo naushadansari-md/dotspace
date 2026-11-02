@@ -12,7 +12,7 @@ hl.env("XDG_SESSION_DESKTOP", "Hyprland")
 -- ------------------------------------------------------------
 -- GTK / GDK (GTK3 + GTK4 Apps)
 -- ------------------------------------------------------------
-hl.env("GTK_USE_PORTAL", "1") -- Changed from "0" to allow dark mode portals to function properly
+hl.env("GTK_USE_PORTAL", "1")
 hl.env("GDK_BACKEND", "wayland,x11")
 hl.env("GDK_SCALE", "1")
 hl.env("CLUTTER_BACKEND", "wayland")
@@ -44,3 +44,10 @@ hl.env("MOZ_ENABLE_WAYLAND", "1")
 -- ------------------------------------------------------------
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
+hl.env("WLR_NO_HARDWARE_CURSORS", "1")
+
+-- ------------------------------------------------------------
+-- Rendering & EGL Fallbacks (Fixes Hyprlock & Terminal Crashes)
+-- ------------------------------------------------------------
+hl.env("LIBGL_ALWAYS_SOFTWARE", "1")
+hl.env("WLR_RENDERER", "pixman")

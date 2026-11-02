@@ -91,11 +91,13 @@ fi
 # Set wallpaper
 # ----------------------------
 if [[ -n "$WALL_CMD" ]]; then
-  if ! "$WALL_CMD" query >/dev/null 2>&1; then
-    pkill -x "${WALL_CMD}-daemon" 2>/dev/null || true
-    "$WALL_CMD" init >/dev/null 2>&1 || true
-    sleep 0.2
+  # Check if awww-daemon is already running; start detached if missing
+  if ! pgrep -x "${WALL_CMD}-daemon" >/dev/null 2>&1; then
+    nohup "${WALL_CMD}-daemon" >/dev/null 2>&1 &
+    sleep 0.3
   fi
+
+  # Apply wallpaper without killing existing daemon
   "$WALL_CMD" img "$wallpaper" >/dev/null 2>&1 || true
 fi
 

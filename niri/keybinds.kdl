@@ -5,7 +5,7 @@ binds {
     // ────────────── Application Shortcuts ──────────────
     MOD+Return            { spawn "foot"; }
     MOD+B                 { spawn "firefox"; }
-    MOD+G                 { spawn "code"; }
+    MOD+G                 { spawn "geany"; }
     MOD+E                 { spawn "thunar"; }
     MOD+SHIFT+W           { spawn "~/.config/niri/scripts/set-wallpaper.sh"; }
     MOD+A                 { spawn "rofi" "-show" "drun"; }
@@ -42,8 +42,8 @@ binds {
     MOD+Q     repeat=false { close-window; }
 
     MOD+H     { focus-column-left; }
-    MOD+J     { focus-workspace-down; }
-    MOD+K     { focus-workspace-up; }
+    MOD+J     { focus-workspace-up; }
+    MOD+K     { focus-workspace-down; }
     MOD+L     { focus-column-right; }
 
     MOD+LEFT  { focus-column-left; }
